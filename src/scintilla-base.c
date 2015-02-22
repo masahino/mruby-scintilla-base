@@ -785,6 +785,12 @@ mrb_mruby_scintilla_base_gem_init(mrb_state* mrb)
   mrb_define_const(mrb, scim, "SC_FOLDFLAG_LINEAFTER_CONTRACTED", mrb_fixnum_value(SC_FOLDFLAG_LINEAFTER_CONTRACTED));
   mrb_define_const(mrb, scim, "SC_FOLDFLAG_LEVELNUMBERS", mrb_fixnum_value(SC_FOLDFLAG_LEVELNUMBERS));
   mrb_define_const(mrb, scim, "SC_FOLDFLAG_LINESTATE", mrb_fixnum_value(SC_FOLDFLAG_LINESTATE));
+
+  mrb_define_const(mrb, scim, "SC_FOLDLEVELBASE", mrb_fixnum_value(SC_FOLDLEVELBASE));
+  mrb_define_const(mrb, scim, "SC_FOLDLEVELWHITEFLAG", mrb_fixnum_value(SC_FOLDLEVELWHITEFLAG));
+  mrb_define_const(mrb, scim, "SC_FOLDLEVELHEADERFLAG", mrb_fixnum_value(SC_FOLDLEVELHEADERFLAG));
+  mrb_define_const(mrb, scim, "SC_FOLDLEVELNUMBERMASK", mrb_fixnum_value(SC_FOLDLEVELNUMBERMASK));
+
   DONE
 }
 
