@@ -7,7 +7,7 @@
 
 #include "Scintilla.h"
 
-#define DONE mrb_gc_arena_restore(mrb, 0);
+#define DONE mrb_gc_arena_restore(mrb, 0)
 
 void
 mrb_mruby_scintilla_base_gem_init(mrb_state* mrb)
@@ -791,7 +791,9 @@ mrb_mruby_scintilla_base_gem_init(mrb_state* mrb)
   mrb_define_const(mrb, scim, "SC_FOLDLEVELHEADERFLAG", mrb_fixnum_value(SC_FOLDLEVELHEADERFLAG));
   mrb_define_const(mrb, scim, "SC_FOLDLEVELNUMBERMASK", mrb_fixnum_value(SC_FOLDLEVELNUMBERMASK));
 
-  DONE
+  mrb_define_const(mrb, scim, "SC_CP_UTF8", mrb_fixnum_value(SC_CP_UTF8));
+
+  DONE;
 }
 
 void
