@@ -793,6 +793,11 @@ mrb_mruby_scintilla_base_gem_init(mrb_state* mrb)
 
   mrb_define_const(mrb, scim, "SC_CP_UTF8", mrb_fixnum_value(SC_CP_UTF8));
 
+  mrb_define_const(mrb, scim, "SC_WRAP_NONE", mrb_fixnum_value(SC_WRAP_NONE));
+  mrb_define_const(mrb, scim, "SC_WRAP_WORD", mrb_fixnum_value(SC_WRAP_WORD));
+  mrb_define_const(mrb, scim, "SC_WRAP_CHAR", mrb_fixnum_value(SC_WRAP_CHAR));
+  mrb_define_const(mrb, scim, "SC_WRAP_WHITESPACE", mrb_fixnum_value(SC_WRAP_WHITESPACE));
+
   DONE;
 }
 
