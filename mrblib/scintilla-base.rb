@@ -13,5 +13,9 @@ module Scintilla
       ret = send_message(SCI_GETFOCUS)
       return ( ret != 0 )? true : false
     end
+    
+    def autoc_select(select)
+      self.send_message(SCI_AUTOCSELECT, 0, select)
+    end
   end
 end
