@@ -566,8 +566,6 @@ mrb_mruby_scintilla_base_gem_init(mrb_state* mrb)
   mrb_define_const(mrb, scim, "SCI_GETCHARACTERPOINTER", mrb_fixnum_value(SCI_GETCHARACTERPOINTER));
   mrb_define_const(mrb, scim, "SCI_GETRANGEPOINTER", mrb_fixnum_value(SCI_GETRANGEPOINTER));
   mrb_define_const(mrb, scim, "SCI_GETGAPPOSITION", mrb_fixnum_value(SCI_GETGAPPOSITION));
-  mrb_define_const(mrb, scim, "SCI_SETKEYSUNICODE", mrb_fixnum_value(SCI_SETKEYSUNICODE));
-  mrb_define_const(mrb, scim, "SCI_GETKEYSUNICODE", mrb_fixnum_value(SCI_GETKEYSUNICODE));
   mrb_define_const(mrb, scim, "SCI_INDICSETALPHA", mrb_fixnum_value(SCI_INDICSETALPHA));
   mrb_define_const(mrb, scim, "SCI_INDICGETALPHA", mrb_fixnum_value(SCI_INDICGETALPHA));
   mrb_define_const(mrb, scim, "SCI_INDICSETOUTLINEALPHA", mrb_fixnum_value(SCI_INDICSETOUTLINEALPHA));
