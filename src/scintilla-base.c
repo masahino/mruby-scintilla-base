@@ -796,6 +796,48 @@ mrb_mruby_scintilla_base_gem_init(mrb_state* mrb)
   mrb_define_const(mrb, scim, "SC_WRAP_CHAR", mrb_fixnum_value(SC_WRAP_CHAR));
   mrb_define_const(mrb, scim, "SC_WRAP_WHITESPACE", mrb_fixnum_value(SC_WRAP_WHITESPACE));
 
+  mrb_define_const(mrb, scim, "MARKER_MAX", mrb_fixnum_value(MARKER_MAX));
+  mrb_define_const(mrb, scim, "SC_MARK_CIRCLE", mrb_fixnum_value(SC_MARK_CIRCLE));
+  mrb_define_const(mrb, scim, "SC_MARK_ROUNDRECT", mrb_fixnum_value(SC_MARK_ROUNDRECT));
+  mrb_define_const(mrb, scim, "SC_MARK_SMALLRECT", mrb_fixnum_value(SC_MARK_SMALLRECT));
+  mrb_define_const(mrb, scim, "SC_MARK_SHORTARROW", mrb_fixnum_value(SC_MARK_SHORTARROW));
+  mrb_define_const(mrb, scim, "SC_MARK_EMPTY", mrb_fixnum_value(SC_MARK_EMPTY));
+  mrb_define_const(mrb, scim, "SC_MARK_ARROWDOWN", mrb_fixnum_value(SC_MARK_ARROWDOWN));
+  mrb_define_const(mrb, scim, "SC_MARK_MINUS", mrb_fixnum_value(SC_MARK_MINUS));
+  mrb_define_const(mrb, scim, "SC_MARK_PLUS", mrb_fixnum_value(SC_MARK_PLUS));
+  mrb_define_const(mrb, scim, "SC_MARK_VLINE", mrb_fixnum_value(SC_MARK_VLINE));
+  mrb_define_const(mrb, scim, "SC_MARK_LCORNER", mrb_fixnum_value(SC_MARK_LCORNER));
+  mrb_define_const(mrb, scim, "SC_MARK_TCORNER", mrb_fixnum_value(SC_MARK_TCORNER));
+  mrb_define_const(mrb, scim, "SC_MARK_BOXPLUS", mrb_fixnum_value(SC_MARK_BOXPLUS));
+  mrb_define_const(mrb, scim, "SC_MARK_BOXPLUSCONNECTED", mrb_fixnum_value(SC_MARK_BOXPLUSCONNECTED));
+  mrb_define_const(mrb, scim, "SC_MARK_BOXMINUS", mrb_fixnum_value(SC_MARK_BOXMINUS));
+  mrb_define_const(mrb, scim, "SC_MARK_BOXMINUSCONNECTED", mrb_fixnum_value(SC_MARK_BOXMINUSCONNECTED));
+  mrb_define_const(mrb, scim, "SC_MARK_LCORNERCURVE", mrb_fixnum_value(SC_MARK_LCORNERCURVE));
+  mrb_define_const(mrb, scim, "SC_MARK_TCORNERCURVE", mrb_fixnum_value(SC_MARK_TCORNERCURVE));
+  mrb_define_const(mrb, scim, "SC_MARK_CIRCLEPLUS", mrb_fixnum_value(SC_MARK_CIRCLEPLUS));
+  mrb_define_const(mrb, scim, "SC_MARK_CIRCLEPLUSCONNECTED", mrb_fixnum_value(SC_MARK_CIRCLEPLUSCONNECTED));
+  mrb_define_const(mrb, scim, "SC_MARK_CIRCLEMINUS", mrb_fixnum_value(SC_MARK_CIRCLEMINUS));
+  mrb_define_const(mrb, scim, "SC_MARK_CIRCLEMINUSCONNECTED", mrb_fixnum_value(SC_MARK_CIRCLEMINUSCONNECTED));
+  mrb_define_const(mrb, scim, "SC_MARK_BACKGROUND", mrb_fixnum_value(SC_MARK_BACKGROUND));
+  mrb_define_const(mrb, scim, "SC_MARK_DOTDOTDOT", mrb_fixnum_value(SC_MARK_DOTDOTDOT));
+  mrb_define_const(mrb, scim, "SC_MARK_ARROWS", mrb_fixnum_value(SC_MARK_ARROWS));
+  mrb_define_const(mrb, scim, "SC_MARK_PIXMAP", mrb_fixnum_value(SC_MARK_PIXMAP));
+  mrb_define_const(mrb, scim, "SC_MARK_FULLRECT", mrb_fixnum_value(SC_MARK_FULLRECT));
+  mrb_define_const(mrb, scim, "SC_MARK_LEFTRECT", mrb_fixnum_value(SC_MARK_LEFTRECT));
+  mrb_define_const(mrb, scim, "SC_MARK_AVAILABLE", mrb_fixnum_value(SC_MARK_AVAILABLE));
+  mrb_define_const(mrb, scim, "SC_MARK_UNDERLINE", mrb_fixnum_value(SC_MARK_UNDERLINE));
+  mrb_define_const(mrb, scim, "SC_MARK_RGBAIMAGE", mrb_fixnum_value(SC_MARK_RGBAIMAGE));
+  mrb_define_const(mrb, scim, "SC_MARK_BOOKMARK", mrb_fixnum_value(SC_MARK_BOOKMARK));
+  mrb_define_const(mrb, scim, "SC_MARK_CHARACTER", mrb_fixnum_value(SC_MARK_CHARACTER));
+
+  mrb_define_const(mrb, scim, "SC_MARKNUM_FOLDEREND", mrb_fixnum_value(SC_MARKNUM_FOLDEREND));
+  mrb_define_const(mrb, scim, "SC_MARKNUM_FOLDEROPENMID", mrb_fixnum_value(SC_MARKNUM_FOLDEROPENMID));
+  mrb_define_const(mrb, scim, "SC_MARKNUM_FOLDERMIDTAIL", mrb_fixnum_value(SC_MARKNUM_FOLDERMIDTAIL));
+  mrb_define_const(mrb, scim, "SC_MARKNUM_FOLDERTAIL", mrb_fixnum_value(SC_MARKNUM_FOLDERTAIL));
+  mrb_define_const(mrb, scim, "SC_MARKNUM_FOLDERSUB", mrb_fixnum_value(SC_MARKNUM_FOLDERSUB));
+  mrb_define_const(mrb, scim, "SC_MARKNUM_FOLDER", mrb_fixnum_value(SC_MARKNUM_FOLDER));
+  mrb_define_const(mrb, scim, "SC_MARKNUM_FOLDEROPEN", mrb_fixnum_value(SC_MARKNUM_FOLDEROPEN));
+
   DONE;
 }
 
