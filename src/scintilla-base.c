@@ -838,6 +838,11 @@ mrb_mruby_scintilla_base_gem_init(mrb_state* mrb)
   mrb_define_const(mrb, scim, "SC_MARKNUM_FOLDER", mrb_fixnum_value(SC_MARKNUM_FOLDER));
   mrb_define_const(mrb, scim, "SC_MARKNUM_FOLDEROPEN", mrb_fixnum_value(SC_MARKNUM_FOLDEROPEN));
 
+  mrb_define_const(mrb, scim, "ANNOTATION_HIDDEN", mrb_fixnum_value(ANNOTATION_HIDDEN));
+  mrb_define_const(mrb, scim, "ANNOTATION_STANDARD", mrb_fixnum_value(ANNOTATION_STANDARD));
+  mrb_define_const(mrb, scim, "ANNOTATION_BOXED", mrb_fixnum_value(ANNOTATION_BOXED));
+  mrb_define_const(mrb, scim, "ANNOTATION_INDENTED", mrb_fixnum_value(ANNOTATION_INDENTED));
+
   DONE;
 }
 
