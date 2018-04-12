@@ -173,8 +173,6 @@ mrb_mruby_scintilla_base_gem_init(mrb_state* mrb)
   mrb_define_const(mrb, scim, "SCI_SETWHITESPACEBACK", mrb_fixnum_value(SCI_SETWHITESPACEBACK));
   mrb_define_const(mrb, scim, "SCI_SETWHITESPACESIZE", mrb_fixnum_value(SCI_SETWHITESPACESIZE));
   mrb_define_const(mrb, scim, "SCI_GETWHITESPACESIZE", mrb_fixnum_value(SCI_GETWHITESPACESIZE));
-  mrb_define_const(mrb, scim, "SCI_SETSTYLEBITS", mrb_fixnum_value(SCI_SETSTYLEBITS));
-  mrb_define_const(mrb, scim, "SCI_GETSTYLEBITS", mrb_fixnum_value(SCI_GETSTYLEBITS));
   mrb_define_const(mrb, scim, "SCI_SETLINESTATE", mrb_fixnum_value(SCI_SETLINESTATE));
   mrb_define_const(mrb, scim, "SCI_GETLINESTATE", mrb_fixnum_value(SCI_GETLINESTATE));
   mrb_define_const(mrb, scim, "SCI_GETMAXLINESTATE", mrb_fixnum_value(SCI_GETMAXLINESTATE));
@@ -695,7 +693,6 @@ mrb_mruby_scintilla_base_gem_init(mrb_state* mrb)
   mrb_define_const(mrb, scim, "SCI_GETPROPERTY", mrb_fixnum_value(SCI_GETPROPERTY));
   mrb_define_const(mrb, scim, "SCI_GETPROPERTYEXPANDED", mrb_fixnum_value(SCI_GETPROPERTYEXPANDED));
   mrb_define_const(mrb, scim, "SCI_GETPROPERTYINT", mrb_fixnum_value(SCI_GETPROPERTYINT));
-  mrb_define_const(mrb, scim, "SCI_GETSTYLEBITSNEEDED", mrb_fixnum_value(SCI_GETSTYLEBITSNEEDED));
   mrb_define_const(mrb, scim, "SCI_GETLEXERLANGUAGE", mrb_fixnum_value(SCI_GETLEXERLANGUAGE));
   mrb_define_const(mrb, scim, "SCI_PRIVATELEXERCALL", mrb_fixnum_value(SCI_PRIVATELEXERCALL));
   mrb_define_const(mrb, scim, "SCI_PROPERTYNAMES", mrb_fixnum_value(SCI_PROPERTYNAMES));
