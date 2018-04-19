@@ -9,6 +9,8 @@
 
 #define DONE mrb_gc_arena_restore(mrb, 0)
 
+void mruby_scintilla_base_define_lexer_constants(mrb_state *mrb, struct RClass *sci);
+
 void
 mrb_mruby_scintilla_base_gem_init(mrb_state* mrb)
 {
@@ -839,6 +841,8 @@ mrb_mruby_scintilla_base_gem_init(mrb_state* mrb)
   mrb_define_const(mrb, scim, "ANNOTATION_STANDARD", mrb_fixnum_value(ANNOTATION_STANDARD));
   mrb_define_const(mrb, scim, "ANNOTATION_BOXED", mrb_fixnum_value(ANNOTATION_BOXED));
   mrb_define_const(mrb, scim, "ANNOTATION_INDENTED", mrb_fixnum_value(ANNOTATION_INDENTED));
+
+  mruby_scintilla_base_define_lexer_constants(mrb, scim);
 
   DONE;
 }
