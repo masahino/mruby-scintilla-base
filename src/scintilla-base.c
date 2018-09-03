@@ -286,6 +286,8 @@ mrb_mruby_scintilla_base_gem_init(mrb_state* mrb)
   mrb_define_const(mrb, scim, "SCI_GETTARGETSTART", mrb_fixnum_value(SCI_GETTARGETSTART));
   mrb_define_const(mrb, scim, "SCI_SETTARGETEND", mrb_fixnum_value(SCI_SETTARGETEND));
   mrb_define_const(mrb, scim, "SCI_GETTARGETEND", mrb_fixnum_value(SCI_GETTARGETEND));
+  mrb_define_const(mrb, scim, "SCI_SETTARGETRANGE", mrb_fixnum_value(SCI_SETTARGETRANGE));
+  mrb_define_const(mrb, scim, "SCI_GETTARGETTEXT", mrb_fixnum_value(SCI_GETTARGETTEXT));
   mrb_define_const(mrb, scim, "SCI_REPLACETARGET", mrb_fixnum_value(SCI_REPLACETARGET));
   mrb_define_const(mrb, scim, "SCI_REPLACETARGETRE", mrb_fixnum_value(SCI_REPLACETARGETRE));
   mrb_define_const(mrb, scim, "SCI_SEARCHINTARGET", mrb_fixnum_value(SCI_SEARCHINTARGET));
@@ -356,8 +358,6 @@ mrb_mruby_scintilla_base_gem_init(mrb_state* mrb)
   mrb_define_const(mrb, scim, "SCI_SETVSCROLLBAR", mrb_fixnum_value(SCI_SETVSCROLLBAR));
   mrb_define_const(mrb, scim, "SCI_GETVSCROLLBAR", mrb_fixnum_value(SCI_GETVSCROLLBAR));
   mrb_define_const(mrb, scim, "SCI_APPENDTEXT", mrb_fixnum_value(SCI_APPENDTEXT));
-  mrb_define_const(mrb, scim, "SCI_GETTWOPHASEDRAW", mrb_fixnum_value(SCI_GETTWOPHASEDRAW));
-  mrb_define_const(mrb, scim, "SCI_SETTWOPHASEDRAW", mrb_fixnum_value(SCI_SETTWOPHASEDRAW));
   mrb_define_const(mrb, scim, "SCI_GETPHASESDRAW", mrb_fixnum_value(SCI_GETPHASESDRAW));
   mrb_define_const(mrb, scim, "SCI_SETPHASESDRAW", mrb_fixnum_value(SCI_SETPHASESDRAW));
   mrb_define_const(mrb, scim, "SCI_SETFONTQUALITY", mrb_fixnum_value(SCI_SETFONTQUALITY));
@@ -841,6 +841,15 @@ mrb_mruby_scintilla_base_gem_init(mrb_state* mrb)
   mrb_define_const(mrb, scim, "ANNOTATION_STANDARD", mrb_fixnum_value(ANNOTATION_STANDARD));
   mrb_define_const(mrb, scim, "ANNOTATION_BOXED", mrb_fixnum_value(ANNOTATION_BOXED));
   mrb_define_const(mrb, scim, "ANNOTATION_INDENTED", mrb_fixnum_value(ANNOTATION_INDENTED));
+
+  mrb_define_const(mrb, scim, "SC_SEL_STREAM", mrb_fixnum_value(SC_SEL_STREAM));
+  mrb_define_const(mrb, scim, "SC_SEL_RECTANGLE", mrb_fixnum_value(SC_SEL_RECTANGLE));
+  mrb_define_const(mrb, scim, "SC_SEL_LINES", mrb_fixnum_value(SC_SEL_LINES));
+  mrb_define_const(mrb, scim, "SC_SEL_THIN", mrb_fixnum_value(SC_SEL_THIN));
+
+  mrb_define_const(mrb, scim, "SC_EOL_CRLF", mrb_fixnum_value(SC_EOL_CRLF));
+  mrb_define_const(mrb, scim, "SC_EOL_CR", mrb_fixnum_value(SC_EOL_CR));
+  mrb_define_const(mrb, scim, "SC_EOL_LF", mrb_fixnum_value(SC_EOL_LF));
 
   mruby_scintilla_base_define_lexer_constants(mrb, scim);
 
