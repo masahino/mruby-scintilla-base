@@ -25,5 +25,9 @@ module Scintilla
     def sci_get_target_text()
       self.send_message_get_str(SCI_GETTARGETTEXT)
     end
+
+    def sci_autoc_get_current_text()
+      self.send_message_get_str(SCI_AUTOCGETCURRENTTEXT)
+    end
   end
 end
