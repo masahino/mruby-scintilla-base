@@ -741,7 +741,7 @@ mrb_mruby_scintilla_base_gem_init(mrb_state* mrb)
   mrb_define_const(mrb, scim, "SC_MARGIN_TEXT", mrb_fixnum_value(SC_MARGIN_TEXT));
   mrb_define_const(mrb, scim, "SC_MARGIN_RTEXT", mrb_fixnum_value(SC_MARGIN_RTEXT));
 
-    mrb_define_const(mrb, scim, "SCN_STYLENEEDED", mrb_fixnum_value(SCN_STYLENEEDED));
+  mrb_define_const(mrb, scim, "SCN_STYLENEEDED", mrb_fixnum_value(SCN_STYLENEEDED));
   mrb_define_const(mrb, scim, "SCN_CHARADDED", mrb_fixnum_value(SCN_CHARADDED));
   mrb_define_const(mrb, scim, "SCN_SAVEPOINTREACHED", mrb_fixnum_value(SCN_SAVEPOINTREACHED));
   mrb_define_const(mrb, scim, "SCN_SAVEPOINTLEFT", mrb_fixnum_value(SCN_SAVEPOINTLEFT));
@@ -850,6 +850,30 @@ mrb_mruby_scintilla_base_gem_init(mrb_state* mrb)
   mrb_define_const(mrb, scim, "SC_EOL_CRLF", mrb_fixnum_value(SC_EOL_CRLF));
   mrb_define_const(mrb, scim, "SC_EOL_CR", mrb_fixnum_value(SC_EOL_CR));
   mrb_define_const(mrb, scim, "SC_EOL_LF", mrb_fixnum_value(SC_EOL_LF));
+
+  mrb_define_const(mrb, scim, "SC_MOD_INSERTTEXT", mrb_fixnum_value(SC_MOD_INSERTTEXT));
+  mrb_define_const(mrb, scim, "SC_MOD_DELETETEXT", mrb_fixnum_value(SC_MOD_DELETETEXT));
+  mrb_define_const(mrb, scim, "SC_MOD_CHANGESTYLE", mrb_fixnum_value(SC_MOD_CHANGESTYLE));
+  mrb_define_const(mrb, scim, "SC_MOD_CHANGEFOLD", mrb_fixnum_value(SC_MOD_CHANGEFOLD));
+  mrb_define_const(mrb, scim, "SC_PERFORMED_USER", mrb_fixnum_value(SC_PERFORMED_USER));
+  mrb_define_const(mrb, scim, "SC_PERFORMED_UNDO", mrb_fixnum_value(SC_PERFORMED_UNDO));
+  mrb_define_const(mrb, scim, "SC_PERFORMED_REDO", mrb_fixnum_value(SC_PERFORMED_REDO));
+  mrb_define_const(mrb, scim, "SC_MULTISTEPUNDOREDO", mrb_fixnum_value(SC_MULTISTEPUNDOREDO));
+  mrb_define_const(mrb, scim, "SC_LASTSTEPINUNDOREDO", mrb_fixnum_value(SC_LASTSTEPINUNDOREDO));
+  mrb_define_const(mrb, scim, "SC_MOD_CHANGEMARKER", mrb_fixnum_value(SC_MOD_CHANGEMARKER));
+  mrb_define_const(mrb, scim, "SC_MOD_BEFOREINSERT", mrb_fixnum_value(SC_MOD_BEFOREINSERT));
+  mrb_define_const(mrb, scim, "SC_MOD_BEFOREDELETE", mrb_fixnum_value(SC_MOD_BEFOREDELETE));
+  mrb_define_const(mrb, scim, "SC_MULTILINEUNDOREDO", mrb_fixnum_value(SC_MULTILINEUNDOREDO));
+  mrb_define_const(mrb, scim, "SC_STARTACTION", mrb_fixnum_value(SC_STARTACTION));
+  mrb_define_const(mrb, scim, "SC_MOD_CHANGEINDICATOR", mrb_fixnum_value(SC_MOD_CHANGEINDICATOR));
+  mrb_define_const(mrb, scim, "SC_MOD_CHANGELINESTATE", mrb_fixnum_value(SC_MOD_CHANGELINESTATE));
+  mrb_define_const(mrb, scim, "SC_MOD_CHANGEMARGIN", mrb_fixnum_value(SC_MOD_CHANGEMARGIN));
+  mrb_define_const(mrb, scim, "SC_MOD_CHANGEANNOTATION", mrb_fixnum_value(SC_MOD_CHANGEANNOTATION));
+  mrb_define_const(mrb, scim, "SC_MOD_CONTAINER", mrb_fixnum_value(SC_MOD_CONTAINER));
+  mrb_define_const(mrb, scim, "SC_MOD_LEXERSTATE", mrb_fixnum_value(SC_MOD_LEXERSTATE));
+  mrb_define_const(mrb, scim, "SC_MOD_INSERTCHECK", mrb_fixnum_value(SC_MOD_INSERTCHECK));
+  mrb_define_const(mrb, scim, "SC_MOD_CHANGETABSTOPS", mrb_fixnum_value(SC_MOD_CHANGETABSTOPS));
+  mrb_define_const(mrb, scim, "SC_MODEVENTMASKALL", mrb_fixnum_value(SC_MODEVENTMASKALL));
 
   mruby_scintilla_base_define_lexer_constants(mrb, scim);
 
