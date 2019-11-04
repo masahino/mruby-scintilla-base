@@ -5,9 +5,10 @@ MRuby::Gem::Specification.new('mruby-scintilla-base') do |spec|
   def spec.download_scintilla
     require 'open-uri'
     require 'openssl'
-    scintilla_url = "https://downloads.sourceforge.net/scintilla/scintilla3110.tgz"
+    scintilla_ver = "3111"
+    scintilla_url = "https://downloads.sourceforge.net/scintilla/scintilla#{scintilla_ver}.tgz"
     scintilla_build_root = "#{build_dir}/scintilla/"
-    scintilla_dir = "#{scintilla_build_root}/scintilla3110"
+    scintilla_dir = "#{scintilla_build_root}/scintilla#{scintilla_ver}"
     scintilla_h = "#{scintilla_dir}/include/Scintilla.h"
 
     unless File.exists?(scintilla_h)
