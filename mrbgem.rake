@@ -15,7 +15,7 @@ MRuby::Gem::Specification.new('mruby-scintilla-base') do |spec|
       open(scintilla_url, :ssl_verify_mode => OpenSSL::SSL::VERIFY_NONE) do |http|
         scintilla_tar = http.read
         FileUtils.mkdir_p scintilla_build_root
-        IO.popen("tar xfz - -C #{filename scintilla_build_root}", "w") do |f|
+        IO.popen("tar xfz - -C #{filename scintilla_build_root}", "wb") do |f|
           f.write scintilla_tar
         end
       end
