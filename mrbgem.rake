@@ -5,7 +5,7 @@ MRuby::Gem::Specification.new('mruby-scintilla-base') do |spec|
   def spec.download_scintilla
     require 'open-uri'
     require 'openssl'
-    scintilla_ver = "3111"
+    scintilla_ver = "3210"
     scintilla_url = "https://downloads.sourceforge.net/scintilla/scintilla#{scintilla_ver}.tgz"
     scintilla_build_root = "#{build_dir}/scintilla/"
     scintilla_dir = "#{scintilla_build_root}/scintilla#{scintilla_ver}"
