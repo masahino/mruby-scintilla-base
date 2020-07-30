@@ -875,6 +875,11 @@ mrb_mruby_scintilla_base_gem_init(mrb_state* mrb)
   mrb_define_const(mrb, scim, "SC_MOD_CHANGETABSTOPS", mrb_fixnum_value(SC_MOD_CHANGETABSTOPS));
   mrb_define_const(mrb, scim, "SC_MODEVENTMASKALL", mrb_fixnum_value(SC_MODEVENTMASKALL));
 
+  mrb_define_const(mrb, scim, "SC_UPDATE_CONTENT", mrb_fixnum_value(SC_UPDATE_CONTENT));
+  mrb_define_const(mrb, scim, "SC_UPDATE_SELECTION", mrb_fixnum_value(SC_UPDATE_SELECTION));
+  mrb_define_const(mrb, scim, "SC_UPDATE_V_SCROLL", mrb_fixnum_value(SC_UPDATE_V_SCROLL));
+  mrb_define_const(mrb, scim, "SC_UPDATE_H_SCROLL", mrb_fixnum_value(SC_UPDATE_H_SCROLL));
+
   mruby_scintilla_base_define_lexer_constants(mrb, scim);
 
   DONE;
