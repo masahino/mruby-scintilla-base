@@ -221,6 +221,7 @@ mrb_mruby_scintilla_base_gem_init(mrb_state* mrb)
   mrb_define_const(mrb, scim, "SCI_GETLINEINDENTPOSITION", mrb_fixnum_value(SCI_GETLINEINDENTPOSITION));
   mrb_define_const(mrb, scim, "SCI_GETCOLUMN", mrb_fixnum_value(SCI_GETCOLUMN));
   mrb_define_const(mrb, scim, "SCI_COUNTCHARACTERS", mrb_fixnum_value(SCI_COUNTCHARACTERS));
+  mrb_define_const(mrb, scim, "SCI_COUNTCODEUNITS", mrb_fixnum_value(SCI_COUNTCODEUNITS));
   mrb_define_const(mrb, scim, "SCI_SETHSCROLLBAR", mrb_fixnum_value(SCI_SETHSCROLLBAR));
   mrb_define_const(mrb, scim, "SCI_GETHSCROLLBAR", mrb_fixnum_value(SCI_GETHSCROLLBAR));
   mrb_define_const(mrb, scim, "SCI_SETINDENTATIONGUIDES", mrb_fixnum_value(SCI_SETINDENTATIONGUIDES));
@@ -499,6 +500,7 @@ mrb_mruby_scintilla_base_gem_init(mrb_state* mrb)
   mrb_define_const(mrb, scim, "SCI_POSITIONBEFORE", mrb_fixnum_value(SCI_POSITIONBEFORE));
   mrb_define_const(mrb, scim, "SCI_POSITIONAFTER", mrb_fixnum_value(SCI_POSITIONAFTER));
   mrb_define_const(mrb, scim, "SCI_POSITIONRELATIVE", mrb_fixnum_value(SCI_POSITIONRELATIVE));
+  mrb_define_const(mrb, scim, "SCI_POSITIONRELATIVECODEUNITS", mrb_fixnum_value(SCI_POSITIONRELATIVECODEUNITS));
   mrb_define_const(mrb, scim, "SCI_COPYRANGE", mrb_fixnum_value(SCI_COPYRANGE));
   mrb_define_const(mrb, scim, "SCI_COPYTEXT", mrb_fixnum_value(SCI_COPYTEXT));
   mrb_define_const(mrb, scim, "SCI_SETSELECTIONMODE", mrb_fixnum_value(SCI_SETSELECTIONMODE));
@@ -879,6 +881,17 @@ mrb_mruby_scintilla_base_gem_init(mrb_state* mrb)
   mrb_define_const(mrb, scim, "SC_UPDATE_SELECTION", mrb_fixnum_value(SC_UPDATE_SELECTION));
   mrb_define_const(mrb, scim, "SC_UPDATE_V_SCROLL", mrb_fixnum_value(SC_UPDATE_V_SCROLL));
   mrb_define_const(mrb, scim, "SC_UPDATE_H_SCROLL", mrb_fixnum_value(SC_UPDATE_H_SCROLL));
+
+#ifndef SCI_DISABLE_PROVISIONAL
+  mrb_define_const(mrb, scim, "SC_LINECHARACTERINDEX_NONE", mrb_fixnum_value(SC_LINECHARACTERINDEX_NONE));
+  mrb_define_const(mrb, scim, "SC_LINECHARACTERINDEX_UTF32", mrb_fixnum_value(SC_LINECHARACTERINDEX_UTF32));
+  mrb_define_const(mrb, scim, "SC_LINECHARACTERINDEX_UTF16", mrb_fixnum_value(SC_LINECHARACTERINDEX_UTF16));
+  mrb_define_const(mrb, scim, "SCI_GETLINECHARACTERINDEX", mrb_fixnum_value(SCI_GETLINECHARACTERINDEX));
+  mrb_define_const(mrb, scim, "SCI_ALLOCATELINECHARACTERINDEX", mrb_fixnum_value(SCI_ALLOCATELINECHARACTERINDEX));
+  mrb_define_const(mrb, scim, "SCI_RELEASELINECHARACTERINDEX", mrb_fixnum_value(SCI_RELEASELINECHARACTERINDEX));
+  mrb_define_const(mrb, scim, "SCI_LINEFROMINDEXPOSITION", mrb_fixnum_value(SCI_LINEFROMINDEXPOSITION));
+  mrb_define_const(mrb, scim, "SCI_INDEXPOSITIONFROMLINE", mrb_fixnum_value(SCI_INDEXPOSITIONFROMLINE));
+#endif
 
   mruby_scintilla_base_define_lexer_constants(mrb, scim);
 
