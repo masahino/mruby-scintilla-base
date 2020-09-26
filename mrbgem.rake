@@ -1,7 +1,7 @@
 MRuby::Gem::Specification.new('mruby-scintilla-base') do |spec|
   spec.license = 'MIT'
   spec.authors = 'masahino'
-  spec.version = '3.21.0'
+  spec.version = '3.21.1'
 
   def spec.download_scintilla
     require 'open-uri'
