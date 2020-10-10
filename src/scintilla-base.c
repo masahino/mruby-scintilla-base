@@ -800,6 +800,7 @@ mrb_mruby_scintilla_base_gem_init(mrb_state* mrb)
   mrb_define_const(mrb, scim, "MARKER_MAX", mrb_fixnum_value(MARKER_MAX));
   mrb_define_const(mrb, scim, "SC_MARK_CIRCLE", mrb_fixnum_value(SC_MARK_CIRCLE));
   mrb_define_const(mrb, scim, "SC_MARK_ROUNDRECT", mrb_fixnum_value(SC_MARK_ROUNDRECT));
+  mrb_define_const(mrb, scim, "SC_MARK_ARROW", mrb_fixnum_value(SC_MARK_ARROW));
   mrb_define_const(mrb, scim, "SC_MARK_SMALLRECT", mrb_fixnum_value(SC_MARK_SMALLRECT));
   mrb_define_const(mrb, scim, "SC_MARK_SHORTARROW", mrb_fixnum_value(SC_MARK_SHORTARROW));
   mrb_define_const(mrb, scim, "SC_MARK_EMPTY", mrb_fixnum_value(SC_MARK_EMPTY));
