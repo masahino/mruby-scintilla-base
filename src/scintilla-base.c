@@ -505,6 +505,7 @@ mrb_mruby_scintilla_base_gem_init(mrb_state* mrb)
   mrb_define_const(mrb, scim, "SCI_COPYTEXT", mrb_fixnum_value(SCI_COPYTEXT));
   mrb_define_const(mrb, scim, "SCI_SETSELECTIONMODE", mrb_fixnum_value(SCI_SETSELECTIONMODE));
   mrb_define_const(mrb, scim, "SCI_GETSELECTIONMODE", mrb_fixnum_value(SCI_GETSELECTIONMODE));
+  mrb_define_const(mrb, scim, "SCI_GETMOVEEXTENDSSELECTION", mrb_fixnum_value(SCI_GETMOVEEXTENDSSELECTION));
   mrb_define_const(mrb, scim, "SCI_GETLINESELSTARTPOSITION", mrb_fixnum_value(SCI_GETLINESELSTARTPOSITION));
   mrb_define_const(mrb, scim, "SCI_GETLINESELENDPOSITION", mrb_fixnum_value(SCI_GETLINESELENDPOSITION));
   mrb_define_const(mrb, scim, "SCI_LINEDOWNRECTEXTEND", mrb_fixnum_value(SCI_LINEDOWNRECTEXTEND));
