@@ -884,6 +884,14 @@ mrb_mruby_scintilla_base_gem_init(mrb_state* mrb)
   mrb_define_const(mrb, scim, "SC_UPDATE_V_SCROLL", mrb_fixnum_value(SC_UPDATE_V_SCROLL));
   mrb_define_const(mrb, scim, "SC_UPDATE_H_SCROLL", mrb_fixnum_value(SC_UPDATE_H_SCROLL));
 
+  mrb_define_const(mrb, scim, "CARETSTYLE_INVISIBLE", mrb_fixnum_value(CARETSTYLE_INVISIBLE));
+  mrb_define_const(mrb, scim, "CARETSTYLE_LINE", mrb_fixnum_value(CARETSTYLE_LINE));
+  mrb_define_const(mrb, scim, "CARETSTYLE_BLOCK", mrb_fixnum_value(CARETSTYLE_BLOCK));
+  mrb_define_const(mrb, scim, "CARETSTYLE_OVERSTRIKE_BAR", mrb_fixnum_value(CARETSTYLE_OVERSTRIKE_BAR));
+  mrb_define_const(mrb, scim, "CARETSTYLE_OVERSTRIKE_BLOCK", mrb_fixnum_value(CARETSTYLE_OVERSTRIKE_BLOCK));
+  mrb_define_const(mrb, scim, "CARETSTYLE_INS_MASK", mrb_fixnum_value(CARETSTYLE_INS_MASK));
+  mrb_define_const(mrb, scim, "CARETSTYLE_BLOCK_AFTER", mrb_fixnum_value(CARETSTYLE_BLOCK_AFTER));
+
 #ifndef SCI_DISABLE_PROVISIONAL
   mrb_define_const(mrb, scim, "SC_LINECHARACTERINDEX_NONE", mrb_fixnum_value(SC_LINECHARACTERINDEX_NONE));
   mrb_define_const(mrb, scim, "SC_LINECHARACTERINDEX_UTF32", mrb_fixnum_value(SC_LINECHARACTERINDEX_UTF32));
