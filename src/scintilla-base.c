@@ -903,6 +903,11 @@ mrb_mruby_scintilla_base_gem_init(mrb_state* mrb)
   mrb_define_const(mrb, scim, "SCI_INDEXPOSITIONFROMLINE", mrb_fixnum_value(SCI_INDEXPOSITIONFROMLINE));
 #endif
 
+  mrb_define_const(mrb, scim, "SCI_IV_NONE", mrb_fixnum_value(SC_IV_NONE));
+  mrb_define_const(mrb, scim, "SCI_IV_REAL", mrb_fixnum_value(SC_IV_REAL));
+  mrb_define_const(mrb, scim, "SCI_IV_LOOKFORWARD", mrb_fixnum_value(SC_IV_LOOKFORWARD));
+  mrb_define_const(mrb, scim, "SCI_IV_LOOKBOTH", mrb_fixnum_value(SC_IV_LOOKBOTH));
+
   mruby_scintilla_base_define_lexer_constants(mrb, scim);
 
   DONE;
