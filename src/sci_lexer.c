@@ -4,6 +4,7 @@
 
 void
 mruby_scintilla_base_define_lexer_constants(mrb_state *mrb, struct RClass *sci) {
+  mrb_define_const(mrb, sci, "SCLEX_CONTAINER", mrb_fixnum_value(SCLEX_CONTAINER));
   mrb_define_const(mrb, sci, "SCE_P_DEFAULT", mrb_fixnum_value(SCE_P_DEFAULT));
   mrb_define_const(mrb, sci, "SCE_P_COMMENTLINE", mrb_fixnum_value(SCE_P_COMMENTLINE));
   mrb_define_const(mrb, sci, "SCE_P_NUMBER", mrb_fixnum_value(SCE_P_NUMBER));
