@@ -688,13 +688,13 @@ mrb_mruby_scintilla_base_gem_init(mrb_state* mrb)
   mrb_define_const(mrb, scim, "SCI_CLEARREPRESENTATION", mrb_fixnum_value(SCI_CLEARREPRESENTATION));
   mrb_define_const(mrb, scim, "SCI_STARTRECORD", mrb_fixnum_value(SCI_STARTRECORD));
   mrb_define_const(mrb, scim, "SCI_STOPRECORD", mrb_fixnum_value(SCI_STOPRECORD));
-  mrb_define_const(mrb, scim, "SCI_SETLEXER", mrb_fixnum_value(SCI_SETLEXER));
+//  mrb_define_const(mrb, scim, "SCI_SETLEXER", mrb_fixnum_value(SCI_SETLEXER));
   mrb_define_const(mrb, scim, "SCI_GETLEXER", mrb_fixnum_value(SCI_GETLEXER));
   mrb_define_const(mrb, scim, "SCI_COLOURISE", mrb_fixnum_value(SCI_COLOURISE));
   mrb_define_const(mrb, scim, "SCI_SETPROPERTY", mrb_fixnum_value(SCI_SETPROPERTY));
   mrb_define_const(mrb, scim, "SCI_SETKEYWORDS", mrb_fixnum_value(SCI_SETKEYWORDS));
-  mrb_define_const(mrb, scim, "SCI_SETLEXERLANGUAGE", mrb_fixnum_value(SCI_SETLEXERLANGUAGE));
-  mrb_define_const(mrb, scim, "SCI_LOADLEXERLIBRARY", mrb_fixnum_value(SCI_LOADLEXERLIBRARY));
+//  mrb_define_const(mrb, scim, "SCI_SETLEXERLANGUAGE", mrb_fixnum_value(SCI_SETLEXERLANGUAGE));
+//  mrb_define_const(mrb, scim, "SCI_LOADLEXERLIBRARY", mrb_fixnum_value(SCI_LOADLEXERLIBRARY));
   mrb_define_const(mrb, scim, "SCI_GETPROPERTY", mrb_fixnum_value(SCI_GETPROPERTY));
   mrb_define_const(mrb, scim, "SCI_GETPROPERTYEXPANDED", mrb_fixnum_value(SCI_GETPROPERTYEXPANDED));
   mrb_define_const(mrb, scim, "SCI_GETPROPERTYINT", mrb_fixnum_value(SCI_GETPROPERTYINT));
