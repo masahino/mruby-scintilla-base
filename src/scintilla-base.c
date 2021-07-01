@@ -909,6 +909,8 @@ mrb_mruby_scintilla_base_gem_init(mrb_state* mrb)
   mrb_define_const(mrb, scim, "SC_IV_LOOKFORWARD", mrb_fixnum_value(SC_IV_LOOKFORWARD));
   mrb_define_const(mrb, scim, "SC_IV_LOOKBOTH", mrb_fixnum_value(SC_IV_LOOKBOTH));
 
+  mrb_define_const(mrb, scim, "SCI_SETILEXER", mrb_fixnum_value(SCI_SETILEXER));
+
   mruby_scintilla_base_define_lexer_constants(mrb, scim);
 
   DONE;
