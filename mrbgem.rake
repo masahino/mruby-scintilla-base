@@ -1,12 +1,12 @@
 MRuby::Gem::Specification.new('mruby-scintilla-base') do |spec|
   spec.license = 'MIT'
   spec.authors = 'masahino'
-  spec.version = '5.1.0'
+  spec.version = '5.1.1'
 
   def spec.download_scintilla
     require 'open-uri'
     require 'openssl'
-    scintilla_ver = "510"
+    scintilla_ver = "511"
     scintilla_url = "https://scintilla.org/scintilla#{scintilla_ver}.tgz"
     lexilla_url = "https://scintilla.org/lexilla#{scintilla_ver}.tgz"
     scintilla_build_root = "#{build_dir}/scintilla/"
