@@ -912,6 +912,9 @@ mrb_mruby_scintilla_base_gem_init(mrb_state* mrb)
   mrb_define_const(mrb, scim, "SCI_SETILEXER", mrb_fixnum_value(SCI_SETILEXER));
   mrb_define_const(mrb, scim, "SCI_REPLACERECTANGULAR", mrb_fixnum_value(SCI_REPLACERECTANGULAR));
 
+  mrb_define_const(mrb, scim, "SCI_SETMARGINS", mrb_fixnum_value(SCI_SETMARGINS));
+  mrb_define_const(mrb, scim, "SCI_GETMARGINS", mrb_fixnum_value(SCI_GETMARGINS));
+
   mruby_scintilla_base_define_lexer_constants(mrb, scim);
 
   DONE;
