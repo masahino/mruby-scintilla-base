@@ -32,5 +32,6 @@ module Scintilla
 
     def sci_annotation_get_text(line)
       self.send_message_get_str(SCI_ANNOTATIONGETTEXT, line)
+    end
   end
 end
