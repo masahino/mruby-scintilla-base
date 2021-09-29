@@ -29,5 +29,8 @@ module Scintilla
     def sci_autoc_get_current_text()
       self.send_message_get_str(SCI_AUTOCGETCURRENTTEXT)
     end
+
+    def sci_annotation_get_text(line)
+      self.send_message_get_str(SCI_ANNOTATIONGETTEXT, line)
   end
 end
