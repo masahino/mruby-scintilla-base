@@ -618,7 +618,7 @@ mruby_scintilla_base_define_lexer_constants(mrb_state *mrb, struct RClass *sci) 
   mrb_define_const(mrb, sci, "SCE_CSS_EXTENDED_IDENTIFIER", mrb_fixnum_value(SCE_CSS_EXTENDED_IDENTIFIER));
   mrb_define_const(mrb, sci, "SCE_CSS_EXTENDED_PSEUDOCLASS", mrb_fixnum_value(SCE_CSS_EXTENDED_PSEUDOCLASS));
   mrb_define_const(mrb, sci, "SCE_CSS_EXTENDED_PSEUDOELEMENT", mrb_fixnum_value(SCE_CSS_EXTENDED_PSEUDOELEMENT));
-  mrb_define_const(mrb, sci, "SCE_CSS_MEDIA", mrb_fixnum_value(SCE_CSS_MEDIA));
+  mrb_define_const(mrb, sci, "SCE_CSS_GROUP_RULE", mrb_fixnum_value(SCE_CSS_GROUP_RULE));
   mrb_define_const(mrb, sci, "SCE_CSS_VARIABLE", mrb_fixnum_value(SCE_CSS_VARIABLE));
   mrb_define_const(mrb, sci, "SCE_POV_DEFAULT", mrb_fixnum_value(SCE_POV_DEFAULT));
   mrb_define_const(mrb, sci, "SCE_POV_COMMENT", mrb_fixnum_value(SCE_POV_COMMENT));

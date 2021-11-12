@@ -884,6 +884,10 @@ mrb_mruby_scintilla_base_gem_init(mrb_state* mrb)
   mrb_define_const(mrb, scim, "SC_UPDATE_V_SCROLL", mrb_fixnum_value(SC_UPDATE_V_SCROLL));
   mrb_define_const(mrb, scim, "SC_UPDATE_H_SCROLL", mrb_fixnum_value(SC_UPDATE_H_SCROLL));
 
+  mrb_define_const(mrb, scim, "SCEN_CHANGE", mrb_fixnum_value(SCEN_CHANGE));
+  mrb_define_const(mrb, scim, "SCEN_SETFOCUS", mrb_fixnum_value(SCEN_SETFOCUS));
+  mrb_define_const(mrb, scim, "SCEN_KILLFOCUS", mrb_fixnum_value(SCEN_KILLFOCUS));
+
   mrb_define_const(mrb, scim, "CARETSTYLE_INVISIBLE", mrb_fixnum_value(CARETSTYLE_INVISIBLE));
   mrb_define_const(mrb, scim, "CARETSTYLE_LINE", mrb_fixnum_value(CARETSTYLE_LINE));
   mrb_define_const(mrb, scim, "CARETSTYLE_BLOCK", mrb_fixnum_value(CARETSTYLE_BLOCK));
