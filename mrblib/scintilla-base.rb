@@ -4,7 +4,16 @@ module Scintilla
       if method_name.to_s[0..3].upcase == 'SCI_'
         message_id = 'SCI_' + method_name.to_s[4..-1].gsub('_', '').upcase
         if Scintilla.const_defined?(message_id)
-          send_message(Scintilla.const_get(message_id), *args)
+          case message_id
+          when 'SCI_GETFOCUS'
+            send_message(Scintilla.const_get(message_id), *args) != 0 ? true : false
+          when 'SCI_SETTEXT', 'SCI_AUTOCSELECT'
+            send_message(Scintilla.const_get(message_id), 0, args[0])
+          when 'SCI_GETTARGETTEXT', 'SCI_AUTOCGETCURRENTTEXT', 'SCI_ANNOTATIONGETTEXT'
+            send_message_get_str(Scintilla.const_get(message_id), *args)
+          else
+            send_message(Scintilla.const_get(message_id), *args)
+          end
         else
           raise "#{message_id} unknown"
         end
@@ -17,29 +26,9 @@ module Scintilla
       sym.to_s[0..3].upcase == 'SCI_'
     end
 
-    def sci_set_text(text)
-      send_message(SCI_SETTEXT, 0, text)
-    end
-
-    def sci_get_focus
+    def sci_get_focusx
       ret = send_message(SCI_GETFOCUS)
       ret != 0 ? true : false
-    end
-
-    def sci_autoc_select(select)
-      send_message(SCI_AUTOCSELECT, 0, select)
-    end
-
-    def sci_get_target_text
-      send_message_get_str(SCI_GETTARGETTEXT)
-    end
-
-    def sci_autoc_get_current_text
-      send_message_get_str(SCI_AUTOCGETCURRENTTEXT)
-    end
-
-    def sci_annotation_get_text(line)
-      send_message_get_str(SCI_ANNOTATIONGETTEXT, line)
     end
   end
 end

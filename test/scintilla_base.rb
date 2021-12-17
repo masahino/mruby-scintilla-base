@@ -1,14 +1,29 @@
 module Scintilla
   class ScintillaTest < ScintillaBase
-    attr_reader :last_message
+    attr_reader :last_message, :last_wparam, :last_lparam, :get_str
+    attr_accessor :ret_val
 
     def initialize
       super
       @last_message = 0
+      @last_wparam = nil
+      @last_lparam = nil
+      @get_str = false
+      @ret_val = nil
     end
 
-    def send_message(message, *_args)
+    def send_message(message, *args)
       @last_message = message
+      @last_wparam = args[0]
+      @last_lparam = args[1]
+      @ret_val
+    end
+
+    def send_message_get_str(message, *args)
+      @get_str = true
+      @last_message = message
+      @last_wparam = args[0]
+      @last_lparam = args[1]
     end
   end
 end
@@ -29,4 +44,70 @@ assert('Scintilla::ScintillaBase#respond_to') do
   assert_equal true, st.respond_to?(:sci_get_focus)
   assert_equal true, st.respond_to?(:sci_set_save_point)
   assert_equal false, st.respond_to?(:hogehoge)
+end
+
+assert('SCI_GETFOCUS') do
+  st = Scintilla::ScintillaTest.new
+  st.ret_val = 0
+  assert_equal false, st.sci_get_focus
+  assert_equal Scintilla::SCI_GETFOCUS, st.last_message
+  st.ret_val = 1
+  assert_equal true, st.sci_get_focus
+  assert_equal Scintilla::SCI_GETFOCUS, st.last_message
+end
+
+assert('SCI_SETTEXT') do
+  st = Scintilla::ScintillaTest.new
+  st.sci_set_text('hoge')
+  assert_equal Scintilla::SCI_SETTEXT, st.last_message
+  assert_equal 0, st.last_wparam
+  assert_equal 'hoge', st.last_lparam
+  st.SCI_SETTEXT('huga')
+  assert_equal Scintilla::SCI_SETTEXT, st.last_message
+  assert_equal 0, st.last_wparam
+  assert_equal 'huga', st.last_lparam
+end
+
+assert('SCI_AUTOCSELECT') do
+  st = Scintilla::ScintillaTest.new
+  st.sci_autoc_select(2)
+  assert_equal Scintilla::SCI_AUTOCSELECT, st.last_message
+  assert_equal 0, st.last_wparam
+  assert_equal 2, st.last_lparam
+  st.SCI_autocselect(23)
+  assert_equal Scintilla::SCI_AUTOCSELECT, st.last_message
+  assert_equal 0, st.last_wparam
+  assert_equal 23, st.last_lparam
+end
+
+assert('SCI_GETTARGETTEXT') do
+  st = Scintilla::ScintillaTest.new
+  st.sci_get_target_text
+  assert_equal true, st.get_str
+  assert_equal Scintilla::SCI_GETTARGETTEXT, st.last_message
+  st.sci_get_targettext
+  assert_equal true, st.get_str
+  assert_equal Scintilla::SCI_GETTARGETTEXT, st.last_message
+end
+
+assert('SCI_AUTOCGETCURRENTTEXT') do
+  st = Scintilla::ScintillaTest.new
+  st.sci_autoc_get_current_text
+  assert_equal true, st.get_str
+  assert_equal Scintilla::SCI_AUTOCGETCURRENTTEXT, st.last_message
+  st.sci_AUTOC_getcurrenttext
+  assert_equal true, st.get_str
+  assert_equal Scintilla::SCI_AUTOCGETCURRENTTEXT, st.last_message
+end
+
+assert('SCI_ANNOTATIONGETTEXT') do
+  st = Scintilla::ScintillaTest.new
+  st.sci_annotation_get_text(1)
+  assert_equal true, st.get_str
+  assert_equal Scintilla::SCI_ANNOTATIONGETTEXT, st.last_message
+  assert_equal 1, st.last_wparam
+  st.sci_annotation_gettext(99)
+  assert_equal true, st.get_str
+  assert_equal Scintilla::SCI_ANNOTATIONGETTEXT, st.last_message
+  assert_equal 99, st.last_wparam
 end
