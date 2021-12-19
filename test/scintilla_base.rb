@@ -1,6 +1,6 @@
 module Scintilla
   class ScintillaTest < ScintillaBase
-    attr_reader :last_message, :last_wparam, :last_lparam, :get_str
+    attr_reader :last_message, :last_wparam, :last_lparam, :method_name
     attr_accessor :ret_val
 
     def initialize
@@ -13,6 +13,7 @@ module Scintilla
     end
 
     def send_message(message, *args)
+      @method_name = __method__
       @last_message = message
       @last_wparam = args[0]
       @last_lparam = args[1]
@@ -20,7 +21,14 @@ module Scintilla
     end
 
     def send_message_get_str(message, *args)
-      @get_str = true
+      @method_name = __method__
+      @last_message = message
+      @last_wparam = args[0]
+      @last_lparam = args[1]
+    end
+
+    def send_message_get_curline(message, *args)
+      @method_name = __method__
       @last_message = message
       @last_wparam = args[0]
       @last_lparam = args[1]
@@ -83,31 +91,53 @@ end
 assert('SCI_GETTARGETTEXT') do
   st = Scintilla::ScintillaTest.new
   st.sci_get_target_text
-  assert_equal true, st.get_str
+  assert_equal :send_message_get_str, st.method_name
   assert_equal Scintilla::SCI_GETTARGETTEXT, st.last_message
   st.sci_get_targettext
-  assert_equal true, st.get_str
+  assert_equal :send_message_get_str, st.method_name
   assert_equal Scintilla::SCI_GETTARGETTEXT, st.last_message
 end
 
 assert('SCI_AUTOCGETCURRENTTEXT') do
   st = Scintilla::ScintillaTest.new
   st.sci_autoc_get_current_text
-  assert_equal true, st.get_str
+  assert_equal :send_message_get_str, st.method_name
   assert_equal Scintilla::SCI_AUTOCGETCURRENTTEXT, st.last_message
   st.sci_AUTOC_getcurrenttext
-  assert_equal true, st.get_str
+  assert_equal :send_message_get_str, st.method_name
   assert_equal Scintilla::SCI_AUTOCGETCURRENTTEXT, st.last_message
 end
 
 assert('SCI_ANNOTATIONGETTEXT') do
   st = Scintilla::ScintillaTest.new
   st.sci_annotation_get_text(1)
-  assert_equal true, st.get_str
+  assert_equal :send_message_get_str, st.method_name
   assert_equal Scintilla::SCI_ANNOTATIONGETTEXT, st.last_message
   assert_equal 1, st.last_wparam
   st.sci_annotation_gettext(99)
-  assert_equal true, st.get_str
+  assert_equal :send_message_get_str, st.method_name
   assert_equal Scintilla::SCI_ANNOTATIONGETTEXT, st.last_message
   assert_equal 99, st.last_wparam
+end
+
+assert('SCI_GETCURLINE') do
+  st = Scintilla::ScintillaTest.new
+  st.sci_get_curline
+  assert_equal :send_message_get_curline, st.method_name
+  assert_equal Scintilla::SCI_GETCURLINE, st.last_message
+  st.sci_GETCURLINE
+  assert_equal :send_message_get_curline, st.method_name
+  assert_equal Scintilla::SCI_GETCURLINE, st.last_message
+end
+
+assert('SCI_GETTEXT') do
+  st = Scintilla::ScintillaTest.new
+  st.sci_get_text(123)
+  assert_equal :send_message_get_str, st.method_name
+  assert_equal Scintilla::SCI_GETTEXT, st.last_message
+  assert_equal 123, st.last_wparam
+  st.SCI_GETTEXT(5)
+  assert_equal :send_message_get_str, st.method_name
+  assert_equal Scintilla::SCI_GETTEXT, st.last_message
+  assert_equal 5, st.last_wparam
 end
