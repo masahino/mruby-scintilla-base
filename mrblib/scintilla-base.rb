@@ -9,10 +9,11 @@ module Scintilla
             send_message(Scintilla.const_get(message_id), *args) != 0 ? true : false
           when 'SCI_SETTEXT', 'SCI_AUTOCSELECT'
             send_message(Scintilla.const_get(message_id), 0, args[0])
-          when 'SCI_GETTARGETTEXT', 'SCI_AUTOCGETCURRENTTEXT', 'SCI_ANNOTATIONGETTEXT', 'SCI_GETTEXT'
+          when 'SCI_GETTARGETTEXT', 'SCI_AUTOCGETCURRENTTEXT', 'SCI_ANNOTATIONGETTEXT', 'SCI_GETTEXT',
+            'SCI_GETSELTEXT'
             send_message_get_str(Scintilla.const_get(message_id), *args)
           when 'SCI_GETCURLINE'
-            send_message_get_curline()
+            send_message_get_curline
           else
             send_message(Scintilla.const_get(message_id), *args)
           end

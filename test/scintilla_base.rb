@@ -141,3 +141,13 @@ assert('SCI_GETTEXT') do
   assert_equal Scintilla::SCI_GETTEXT, st.last_message
   assert_equal 5, st.last_wparam
 end
+
+assert('SCI_GETSELTEXT') do
+  st = Scintilla::ScintillaTest.new
+  st.sci_get_seltext
+  assert_equal :send_message_get_str, st.method_name
+  assert_equal Scintilla::SCI_GETSELTEXT, st.last_message
+  st.SCI_GETSELTEXT
+  assert_equal :send_message_get_str, st.method_name
+  assert_equal Scintilla::SCI_GETSELTEXT, st.last_message
+end
