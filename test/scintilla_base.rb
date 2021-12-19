@@ -27,11 +27,11 @@ module Scintilla
       @last_lparam = args[1]
     end
 
-    def send_message_get_curline(message, *args)
+    def send_message_get_curline()
       @method_name = __method__
-      @last_message = message
-      @last_wparam = args[0]
-      @last_lparam = args[1]
+      @last_message = 0
+      @last_wparam = nil
+      @last_lparam = nil
     end
   end
 end
@@ -124,10 +124,10 @@ assert('SCI_GETCURLINE') do
   st = Scintilla::ScintillaTest.new
   st.sci_get_curline
   assert_equal :send_message_get_curline, st.method_name
-  assert_equal Scintilla::SCI_GETCURLINE, st.last_message
+  assert_equal 0, st.last_message
   st.sci_GETCURLINE
   assert_equal :send_message_get_curline, st.method_name
-  assert_equal Scintilla::SCI_GETCURLINE, st.last_message
+  assert_equal 0, st.last_message
 end
 
 assert('SCI_GETTEXT') do

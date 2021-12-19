@@ -12,7 +12,7 @@ module Scintilla
           when 'SCI_GETTARGETTEXT', 'SCI_AUTOCGETCURRENTTEXT', 'SCI_ANNOTATIONGETTEXT', 'SCI_GETTEXT'
             send_message_get_str(Scintilla.const_get(message_id), *args)
           when 'SCI_GETCURLINE'
-            send_message_get_curline(Scintilla.const_get(message_id), *args)
+            send_message_get_curline()
           else
             send_message(Scintilla.const_get(message_id), *args)
           end
