@@ -151,3 +151,15 @@ assert('SCI_GETSELTEXT') do
   assert_equal :send_message_get_str, st.method_name
   assert_equal Scintilla::SCI_GETSELTEXT, st.last_message
 end
+
+assert('SCI_GETPROPERTY') do
+  st = Scintilla::ScintillaTest.new
+  st.sci_get_property('hoge')
+  assert_equal :send_message_get_str, st.method_name
+  assert_equal Scintilla::SCI_GETPROPERTY, st.last_message
+  assert_equal 'hoge', st.last_wparam
+  st.SCI_GETPROPERTY('huga')
+  assert_equal :send_message_get_str, st.method_name
+  assert_equal Scintilla::SCI_GETPROPERTY, st.last_message
+  assert_equal 'huga', st.last_wparam
+end
