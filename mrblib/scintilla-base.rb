@@ -16,6 +16,8 @@ module Scintilla
             send_message_get_text(args[0])
           when 'SCI_GETCURLINE'
             send_message_get_curline
+          when 'SCI_GETLINE'
+            send_message_get_line(args[0])
           else
             send_message(Scintilla.const_get(message_id), *args)
           end

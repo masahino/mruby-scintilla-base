@@ -40,6 +40,13 @@ module Scintilla
       @last_wparam = nil
       @last_lparam = nil
     end
+
+    def send_message_get_line(wparam)
+      @method_name = __method__
+      @last_message = 0
+      @last_wparam = wparam
+      @last_lparam = nil
+    end
   end
 end
 
@@ -169,4 +176,16 @@ assert('SCI_GETPROPERTY') do
   assert_equal :send_message_get_str, st.method_name
   assert_equal Scintilla::SCI_GETPROPERTY, st.last_message
   assert_equal 'huga', st.last_wparam
+end
+
+assert('SCI_GETLINE') do
+  st = Scintilla::ScintillaTest.new
+  st.sci_getline(1)
+  assert_equal :send_message_get_line, st.method_name
+  assert_equal 0, st.last_message
+  assert_equal 1, st.last_wparam
+  st.SCI_GETLINE(222)
+  assert_equal :send_message_get_line, st.method_name
+  assert_equal 0, st.last_message
+  assert_equal 222, st.last_wparam
 end
