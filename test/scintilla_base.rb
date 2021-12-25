@@ -203,3 +203,11 @@ assert('SCI_GETLEXERLANGUAGE') do
   assert_equal :send_message_get_str, st.method_name
   assert_equal Scintilla::SCI_GETLEXERLANGUAGE, st.last_message
 end
+
+assert('SCI_MARGINGETTEXT') do
+  st = Scintilla::ScintillaTest.new
+  st.SCI_MARGINGETTEXT(999)
+  assert_equal :send_message_get_str, st.method_name
+  assert_equal Scintilla::SCI_MARGINGETTEXT, st.last_message
+  assert_equal 999, st.last_wparam
+end
