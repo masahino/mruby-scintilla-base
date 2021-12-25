@@ -189,3 +189,10 @@ assert('SCI_GETLINE') do
   assert_equal 0, st.last_message
   assert_equal 222, st.last_wparam
 end
+
+assert('SCI_GETWORDCHARS') do
+  st = Scintilla::ScintillaTest.new
+  st.SCI_GETWORDCHARS
+  assert_equal :send_message_get_str, st.method_name
+  assert_equal Scintilla::SCI_GETWORDCHARS, st.last_message
+end
