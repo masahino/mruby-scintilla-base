@@ -196,3 +196,10 @@ assert('SCI_GETWORDCHARS') do
   assert_equal :send_message_get_str, st.method_name
   assert_equal Scintilla::SCI_GETWORDCHARS, st.last_message
 end
+
+assert('SCI_GETLEXERLANGUAGE') do
+  st = Scintilla::ScintillaTest.new
+  st.SCI_GETLEXERLANGUAGE
+  assert_equal :send_message_get_str, st.method_name
+  assert_equal Scintilla::SCI_GETLEXERLANGUAGE, st.last_message
+end
