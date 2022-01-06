@@ -459,6 +459,7 @@ mrb_mruby_scintilla_base_gem_init(mrb_state* mrb)
   mrb_define_const(mrb, scim, "SCI_CREATEDOCUMENT", mrb_fixnum_value(SCI_CREATEDOCUMENT));
   mrb_define_const(mrb, scim, "SCI_ADDREFDOCUMENT", mrb_fixnum_value(SCI_ADDREFDOCUMENT));
   mrb_define_const(mrb, scim, "SCI_RELEASEDOCUMENT", mrb_fixnum_value(SCI_RELEASEDOCUMENT));
+  mrb_define_const(mrb, scim, "SCI_GETDOCUMENTOPTIONS", mrb_fixnum_value(SCI_GETDOCUMENTOPTIONS));
   mrb_define_const(mrb, scim, "SCI_GETMODEVENTMASK", mrb_fixnum_value(SCI_GETMODEVENTMASK));
   mrb_define_const(mrb, scim, "SCI_SETFOCUS", mrb_fixnum_value(SCI_SETFOCUS));
   mrb_define_const(mrb, scim, "SCI_GETFOCUS", mrb_fixnum_value(SCI_GETFOCUS));
