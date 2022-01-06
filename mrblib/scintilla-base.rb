@@ -18,6 +18,10 @@ module Scintilla
             send_message_get_curline
           when 'SCI_GETLINE'
             send_message_get_line(args[0])
+          when 'SCI_GETDOCPOINTER', 'SCI_CREATEDOCUMENT'
+            send_message_get_docpointer(Scintilla.const_get(message_id), *args)
+          when 'SCI_SETDOCPOINTER', 'SCI_ADDREFDOCUMENT', 'SCI_RELEASEDOCUMENT'
+            send_message_set_docpointer(Scintilla.const_get(message_id), args[0])
           else
             send_message(Scintilla.const_get(message_id), *args)
           end

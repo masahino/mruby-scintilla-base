@@ -47,6 +47,20 @@ module Scintilla
       @last_wparam = wparam
       @last_lparam = nil
     end
+
+    def send_message_get_docpointer(message, *args)
+      @method_name = __method__
+      @last_message = message
+      @last_wparam = args[0]
+      @last_lparam = args[1]
+    end
+
+    def send_message_set_docpointer(message, wparam)
+      @method_name = __method__
+      @last_message = message
+      @last_wparam = wparam
+      @last_lparam = nil
+    end
   end
 end
 
@@ -210,4 +224,44 @@ assert('SCI_MARGINGETTEXT') do
   assert_equal :send_message_get_str, st.method_name
   assert_equal Scintilla::SCI_MARGINGETTEXT, st.last_message
   assert_equal 999, st.last_wparam
+end
+
+assert('SCI_GETDOCPOINTER') do
+  st = Scintilla::ScintillaTest.new
+  st.SCI_GETDOCPOINTER
+  assert_equal :send_message_get_docpointer, st.method_name
+  assert_equal Scintilla::SCI_GETDOCPOINTER, st.last_message
+end
+
+assert('SCI_CREATEDOCUMENT') do
+  st = Scintilla::ScintillaTest.new
+  st.SCI_CREATEDOCUMENT(100, 0x100)
+  assert_equal :send_message_get_docpointer, st.method_name
+  assert_equal Scintilla::SCI_CREATEDOCUMENT, st.last_message
+  assert_equal 100, st.last_wparam
+  assert_equal 0x100, st.last_lparam
+end
+
+assert('SCI_SETDOCPOINTER') do
+  st = Scintilla::ScintillaTest.new
+  st.SCI_SETDOCPOINTER(1)
+  assert_equal :send_message_set_docpointer, st.method_name
+  assert_equal Scintilla::SCI_SETDOCPOINTER, st.last_message
+  assert_equal 1, st.last_wparam
+end
+
+assert('SCI_ADDREFDOCUMENT') do
+  st = Scintilla::ScintillaTest.new
+  st.SCI_ADDREFDOCUMENT(2)
+  assert_equal :send_message_set_docpointer, st.method_name
+  assert_equal Scintilla::SCI_ADDREFDOCUMENT, st.last_message
+  assert_equal 2, st.last_wparam
+end
+
+assert('SCI_RELEASEDOCUMENT') do
+  st = Scintilla::ScintillaTest.new
+  st.SCI_RELEASEDOCUMENT(3)
+  assert_equal :send_message_set_docpointer, st.method_name
+  assert_equal Scintilla::SCI_RELEASEDOCUMENT, st.last_message
+  assert_equal 3, st.last_wparam
 end
