@@ -61,6 +61,13 @@ module Scintilla
       @last_wparam = wparam
       @last_lparam = nil
     end
+
+    def send_message_set_pointer(message, wparam)
+      @method_name = __method__
+      @last_message = message
+      @last_wparam = wparam
+      @last_lparam = nil
+    end
   end
 end
 
@@ -264,4 +271,12 @@ assert('SCI_RELEASEDOCUMENT') do
   assert_equal :send_message_set_docpointer, st.method_name
   assert_equal Scintilla::SCI_RELEASEDOCUMENT, st.last_message
   assert_equal 3, st.last_wparam
+end
+
+assert('SCI_SETILEXER') do
+  st = Scintilla::ScintillaTest.new
+  st.SCI_SETILEXER('hoge')
+  assert_equal :send_message_set_pointer, st.method_name
+  assert_equal Scintilla::SCI_SETILEXER, st.last_message
+  assert_equal 'hoge', st.last_wparam
 end
