@@ -29,6 +29,7 @@ MRuby::Gem::Specification.new('mruby-scintilla-base') do |spec|
     file lexilla_h do
       URI.open(lexilla_url, ssl_verify_mode: OpenSSL::SSL::VERIFY_NONE) do |http|
         lexilla_tar = http.read
+        FileUtils.mkdir_p scintilla_build_root
         IO.popen("tar xfz - -C #{filename scintilla_build_root}", 'wb') do |f|
           f.write lexilla_tar
         end
@@ -42,5 +43,6 @@ MRuby::Gem::Specification.new('mruby-scintilla-base') do |spec|
       end
     end
     file "#{dir}/src/scintilla-base.c" => [:mruby_scintilla_base_compile_option, scintilla_h, lexilla_h]
+    file "#{dir}/src/sci_lexer.c" => [:mruby_scintilla_base_compile_option, lexilla_h]
   end
 end
