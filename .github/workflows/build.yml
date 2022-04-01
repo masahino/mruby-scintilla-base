@@ -15,6 +15,6 @@ jobs:
       - name: Compiler version
         run: ${{ env.CC }} --version
       - name: Build
-        run: ./build.sh
+        run: rake
       - name: Test
-        run: ./build.sh test
+        run: rake test
