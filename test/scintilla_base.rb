@@ -280,3 +280,8 @@ assert('SCI_SETILEXER') do
   assert_equal Scintilla::SCI_SETILEXER, st.last_message
   assert_equal 'hoge', st.last_wparam
 end
+
+assert('create_lexer') do
+  lexer = Scintilla.create_lexer('ruby')
+  assert_not_nil lexer
+end

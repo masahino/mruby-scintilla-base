@@ -6,10 +6,22 @@
 #include "mruby/array.h"
 
 #include "Scintilla.h"
+#include "Lexilla.h"
 
 #define DONE mrb_gc_arena_restore(mrb, 0)
 
 void mruby_scintilla_base_define_lexer_constants(mrb_state *mrb, struct RClass *sci);
+
+static mrb_value
+mrb_scintilla_create_lexer(mrb_state *mrb, mrb_value self)
+{
+  char *lang = NULL;
+  mrb_get_args(mrb, "z", &lang);
+
+  ILexer5 *pLexer = CreateLexer(lang);
+
+  return mrb_cptr_value(mrb, pLexer);
+}
 
 void
 mrb_mruby_scintilla_base_gem_init(mrb_state* mrb)
@@ -919,6 +931,8 @@ mrb_mruby_scintilla_base_gem_init(mrb_state* mrb)
 
   mrb_define_const(mrb, scim, "SCI_SETMARGINS", mrb_fixnum_value(SCI_SETMARGINS));
   mrb_define_const(mrb, scim, "SCI_GETMARGINS", mrb_fixnum_value(SCI_GETMARGINS));
+
+  mrb_define_module_function(mrb, scim, "create_lexer", mrb_scintilla_create_lexer, MRB_ARGS_REQ(1));
 
   mruby_scintilla_base_define_lexer_constants(mrb, scim);
 

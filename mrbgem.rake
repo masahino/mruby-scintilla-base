@@ -16,6 +16,7 @@ MRuby::Gem::Specification.new('mruby-scintilla-base') do |spec|
     lexilla_dir = "#{scintilla_build_root}/lexilla"
     scintilla_h = "#{scintilla_dir}/include/Scintilla.h"
     lexilla_h = "#{lexilla_dir}/include/Lexilla.h"
+    lexilla_a = "#{lexilla_dir}/bin/liblexilla.a"
 
     file scintilla_h do
       URI.open(scintilla_url, ssl_verify_mode: OpenSSL::SSL::VERIFY_NONE) do |http|
@@ -26,6 +27,7 @@ MRuby::Gem::Specification.new('mruby-scintilla-base') do |spec|
         end
       end
     end
+
     file lexilla_h do
       URI.open(lexilla_url, ssl_verify_mode: OpenSSL::SSL::VERIFY_NONE) do |http|
         lexilla_tar = http.read
@@ -36,13 +38,20 @@ MRuby::Gem::Specification.new('mruby-scintilla-base') do |spec|
       end
     end
 
+    file lexilla_a => lexilla_h do
+      sh %{(cd #{lexilla_dir}/src && make CXX=#{build.cxx.command} AR=#{build.archiver.command})}
+    end
+
     task :mruby_scintilla_base_compile_option do
       [cc, cxx, objc, mruby.cc, mruby.cxx, mruby.objc].each do |cc|
         cc.include_paths << "#{scintilla_dir}/include"
         cc.include_paths << "#{lexilla_dir}/include"
       end
     end
-    file "#{dir}/src/scintilla-base.c" => [:mruby_scintilla_base_compile_option, scintilla_h, lexilla_h]
+
+    linker.flags_before_libraries << lexilla_a
+
+    file "#{dir}/src/scintilla-base.c" => [:mruby_scintilla_base_compile_option, scintilla_h, lexilla_h, lexilla_a]
     file "#{dir}/src/sci_lexer.c" => [:mruby_scintilla_base_compile_option, lexilla_h]
   end
 end
