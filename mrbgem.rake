@@ -50,6 +50,7 @@ MRuby::Gem::Specification.new('mruby-scintilla-base') do |spec|
     end
 
     linker.flags_before_libraries << lexilla_a
+    linker.libraries << 'stdc++'
 
     file "#{dir}/src/scintilla-base.c" => [:mruby_scintilla_base_compile_option, scintilla_h, lexilla_h, lexilla_a]
     file "#{dir}/src/sci_lexer.c" => [:mruby_scintilla_base_compile_option, lexilla_h]
