@@ -39,7 +39,11 @@ MRuby::Gem::Specification.new('mruby-scintilla-base') do |spec|
     end
 
     file lexilla_a => lexilla_h do
-      sh %{(cd #{lexilla_dir}/src && make CXX=#{build.cxx.command} AR=#{build.archiver.command})}
+      cxxflags = ''
+      if RUBY_PLATFORM.downcase.include?('cygwin')
+        cxxflags = '--std=gnu++17'
+      end
+      sh %{(cd #{lexilla_dir}/src && make CXX=#{build.cxx.command} AR=#{build.archiver.command} CXXFLAGS=#{cxxflags})}
     end
 
     task :mruby_scintilla_base_compile_option do
