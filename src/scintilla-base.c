@@ -934,6 +934,27 @@ mrb_mruby_scintilla_base_gem_init(mrb_state* mrb)
 
   mrb_define_module_function(mrb, scim, "create_lexer", mrb_scintilla_create_lexer, MRB_ARGS_REQ(1));
 
+  /* added ver 5.3.0 */
+  mrb_define_const(mrb, scim, "SC_MARKNUM_HISTORY_REVERTED_TO_ORIGIN", mrb_fixnum_value(SC_MARKNUM_HISTORY_REVERTED_TO_ORIGIN));
+  mrb_define_const(mrb, scim, "SC_MARKNUM_HISTORY_SAVED", mrb_fixnum_value(SC_MARKNUM_HISTORY_SAVED));
+  mrb_define_const(mrb, scim, "SC_MARKNUM_HISTORY_MODIFIED", mrb_fixnum_value(SC_MARKNUM_HISTORY_MODIFIED));
+  mrb_define_const(mrb, scim, "SC_MARKNUM_HISTORY_REVERTED_TO_MODIFIED", mrb_fixnum_value(SC_MARKNUM_HISTORY_REVERTED_TO_MODIFIED));
+  mrb_define_const(mrb, scim, "INDICATOR_HISTORY_REVERTED_TO_ORIGIN_INSERTION", mrb_fixnum_value(INDICATOR_HISTORY_REVERTED_TO_ORIGIN_INSERTION));
+  mrb_define_const(mrb, scim, "INDICATOR_HISTORY_REVERTED_TO_ORIGIN_DELETION", mrb_fixnum_value(INDICATOR_HISTORY_REVERTED_TO_ORIGIN_DELETION));
+  mrb_define_const(mrb, scim, "INDICATOR_HISTORY_SAVED_INSERTION", mrb_fixnum_value(INDICATOR_HISTORY_SAVED_INSERTION));
+  mrb_define_const(mrb, scim, "INDICATOR_HISTORY_SAVED_DELETION", mrb_fixnum_value(INDICATOR_HISTORY_SAVED_DELETION));
+  mrb_define_const(mrb, scim, "INDICATOR_HISTORY_MODIFIED_INSERTION", mrb_fixnum_value(INDICATOR_HISTORY_MODIFIED_INSERTION));
+  mrb_define_const(mrb, scim, "INDICATOR_HISTORY_MODIFIED_DELETION", mrb_fixnum_value(INDICATOR_HISTORY_MODIFIED_DELETION));
+  mrb_define_const(mrb, scim, "INDICATOR_HISTORY_REVERTED_TO_MODIFIED_INSERTION", mrb_fixnum_value(INDICATOR_HISTORY_REVERTED_TO_MODIFIED_INSERTION));
+  mrb_define_const(mrb, scim, "INDICATOR_HISTORY_REVERTED_TO_MODIFIED_DELETION", mrb_fixnum_value(INDICATOR_HISTORY_REVERTED_TO_MODIFIED_DELETION));
+  mrb_define_const(mrb, scim, "SC_CHANGE_HISTORY_DISABLED", mrb_fixnum_value(SC_CHANGE_HISTORY_DISABLED));
+  mrb_define_const(mrb, scim, "SC_CHANGE_HISTORY_ENABLED", mrb_fixnum_value(SC_CHANGE_HISTORY_ENABLED));
+  mrb_define_const(mrb, scim, "SC_CHANGE_HISTORY_MARKERS", mrb_fixnum_value(SC_CHANGE_HISTORY_MARKERS));
+  mrb_define_const(mrb, scim, "SC_CHANGE_HISTORY_INDICATORS", mrb_fixnum_value(SC_CHANGE_HISTORY_INDICATORS));
+  mrb_define_const(mrb, scim, "SCI_GETCHANGEHISTORY", mrb_fixnum_value(SCI_GETCHANGEHISTORY));
+  mrb_define_const(mrb, scim, "SCI_GETCHANGEHISTORY", mrb_fixnum_value(SCI_GETCHANGEHISTORY));
+  /* added ver 5.3.0 */
+
   mruby_scintilla_base_define_lexer_constants(mrb, scim);
 
   DONE;
