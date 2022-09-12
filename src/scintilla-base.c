@@ -951,7 +951,7 @@ mrb_mruby_scintilla_base_gem_init(mrb_state* mrb)
   mrb_define_const(mrb, scim, "SC_CHANGE_HISTORY_ENABLED", mrb_fixnum_value(SC_CHANGE_HISTORY_ENABLED));
   mrb_define_const(mrb, scim, "SC_CHANGE_HISTORY_MARKERS", mrb_fixnum_value(SC_CHANGE_HISTORY_MARKERS));
   mrb_define_const(mrb, scim, "SC_CHANGE_HISTORY_INDICATORS", mrb_fixnum_value(SC_CHANGE_HISTORY_INDICATORS));
-  mrb_define_const(mrb, scim, "SCI_GETCHANGEHISTORY", mrb_fixnum_value(SCI_GETCHANGEHISTORY));
+  mrb_define_const(mrb, scim, "SCI_SETCHANGEHISTORY", mrb_fixnum_value(SCI_SETCHANGEHISTORY));
   mrb_define_const(mrb, scim, "SCI_GETCHANGEHISTORY", mrb_fixnum_value(SCI_GETCHANGEHISTORY));
   /* added ver 5.3.0 */
 
