@@ -935,6 +935,7 @@ mrb_mruby_scintilla_base_gem_init(mrb_state* mrb)
   mrb_define_module_function(mrb, scim, "create_lexer", mrb_scintilla_create_lexer, MRB_ARGS_REQ(1));
 
   /* added ver 5.3.0 */
+  mrb_define_const(mrb, scim, "SC_MARK_BAR", mrb_fixnum_value(SC_MARK_BAR));
   mrb_define_const(mrb, scim, "SC_MARKNUM_HISTORY_REVERTED_TO_ORIGIN", mrb_fixnum_value(SC_MARKNUM_HISTORY_REVERTED_TO_ORIGIN));
   mrb_define_const(mrb, scim, "SC_MARKNUM_HISTORY_SAVED", mrb_fixnum_value(SC_MARKNUM_HISTORY_SAVED));
   mrb_define_const(mrb, scim, "SC_MARKNUM_HISTORY_MODIFIED", mrb_fixnum_value(SC_MARKNUM_HISTORY_MODIFIED));
