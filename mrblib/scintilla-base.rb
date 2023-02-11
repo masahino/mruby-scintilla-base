@@ -5,7 +5,7 @@ module Scintilla
         message_id = 'SCI_' + method_name.to_s[4..-1].gsub('_', '').upcase
         if Scintilla.const_defined?(message_id)
           case message_id
-          when 'SCI_GETFOCUS', 'SCI_AUTOCACTIVE', 'SCI_GETREADONLY'
+          when 'SCI_GETFOCUS', 'SCI_AUTOCACTIVE', 'SCI_GETREADONLY', 'SCI_CALLTIPACTIVE'
             send_message(Scintilla.const_get(message_id), *args) != 0
           when 'SCI_SETTEXT', 'SCI_AUTOCSELECT'
             send_message(Scintilla.const_get(message_id), 0, args[0])
