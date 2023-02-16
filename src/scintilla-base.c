@@ -786,6 +786,9 @@ mrb_mruby_scintilla_base_gem_init(mrb_state* mrb)
   mrb_define_const(mrb, scim, "SCN_HOTSPOTRELEASECLICK", mrb_fixnum_value(SCN_HOTSPOTRELEASECLICK));
   mrb_define_const(mrb, scim, "SCN_FOCUSIN", mrb_fixnum_value(SCN_FOCUSIN));
   mrb_define_const(mrb, scim, "SCN_FOCUSOUT", mrb_fixnum_value(SCN_FOCUSOUT));
+  mrb_define_const(mrb, scim, "SCN_MARGINRIGHTCLICK", mrb_fixnum_value(SCN_MARGINRIGHTCLICK));
+  mrb_define_const(mrb, scim, "SCN_AUTOCCOMPLETED", mrb_fixnum_value(SCN_AUTOCCOMPLETED));
+  mrb_define_const(mrb, scim, "SCN_AUTOCSELECTIONCHANGE", mrb_fixnum_value(SCN_AUTOCSELECTIONCHANGE));
 
   mrb_define_const(mrb, scim, "SC_CURSORNORMAL", mrb_fixnum_value(SC_CURSORNORMAL));
   mrb_define_const(mrb, scim, "SC_CURSORARROW", mrb_fixnum_value(SC_CURSORARROW));
