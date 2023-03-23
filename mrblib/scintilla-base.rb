@@ -14,6 +14,8 @@ module Scintilla
             send_message_get_str(Scintilla.const_get(message_id), *args)
           when 'SCI_GETTEXT'
             send_message_get_text(args[0])
+          when 'SCI_GETTEXTRANGE'
+            send_message_get_text_range(Scintilla.const_get(message_id), *args)
           when 'SCI_GETCURLINE'
             send_message_get_curline
           when 'SCI_GETLINE'
