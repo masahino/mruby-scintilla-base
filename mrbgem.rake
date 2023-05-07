@@ -2,6 +2,7 @@ MRuby::Gem::Specification.new('mruby-scintilla-base') do |spec|
   spec.license = 'MIT'
   spec.authors = 'masahino'
   spec.version = '5.3.4'
+  spec.add_dependency 'mruby-string-ext'
   spec.add_test_dependency 'mruby-kernel-ext'
 
   def spec.download_scintilla
