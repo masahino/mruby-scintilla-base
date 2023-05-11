@@ -1,4 +1,5 @@
 module Scintilla
+  # ScintillaBase
   class ScintillaBase
     def method_missing(method_s, *args)
       method_name = method_s.to_s.upcase
@@ -40,7 +41,7 @@ module Scintilla
     end
 
     def respond_to_missing?(sym, _include_private)
-      sym.to_s[0..3].upcase == 'SCI_'
+      sym.to_s.upcase.start_with?('SCI_')
     end
   end
 end
