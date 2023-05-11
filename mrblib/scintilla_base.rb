@@ -13,7 +13,7 @@ module Scintilla
           when SCI_SETTEXT, SCI_AUTOCSELECT
             send_message(message_id, 0, args[0])
           when SCI_GETTARGETTEXT, SCI_AUTOCGETCURRENTTEXT, SCI_ANNOTATIONGETTEXT, SCI_GETSELTEXT,
-            SCI_GETPROPERTY, SCI_GETWORDCHARS, SCI_GETLEXERLANGUAGE, SCI_MARGINGETTEXT
+            SCI_GETPROPERTY, SCI_GETWORDCHARS, SCI_GETLEXERLANGUAGE, SCI_MARGINGETTEXT, SCI_GETLINE
             send_message_get_str(message_id, *args)
           when SCI_GETTEXT
             send_message_get_text(args[0])
@@ -21,8 +21,6 @@ module Scintilla
             send_message_get_text_range(message_id, *args)
           when SCI_GETCURLINE
             send_message_get_curline
-          when SCI_GETLINE
-            send_message_get_line(args[0])
           when SCI_GETDOCPOINTER, SCI_CREATEDOCUMENT
             send_message_get_docpointer(message_id, *args)
           when SCI_SETDOCPOINTER, SCI_ADDREFDOCUMENT, SCI_RELEASEDOCUMENT

@@ -202,12 +202,12 @@ end
 assert('SCI_GETLINE') do
   st = Scintilla::ScintillaTest.new
   st.sci_getline(1)
-  assert_equal :send_message_get_line, st.method_name
-  assert_equal 0, st.last_message
+  assert_equal :send_message_get_str, st.method_name
+  assert_equal Scintilla::SCI_GETLINE, st.last_message
   assert_equal 1, st.last_wparam
   st.SCI_GETLINE(222)
-  assert_equal :send_message_get_line, st.method_name
-  assert_equal 0, st.last_message
+  assert_equal :send_message_get_str, st.method_name
+  assert_equal Scintilla::SCI_GETLINE, st.last_message
   assert_equal 222, st.last_wparam
 end
 
