@@ -27,9 +27,9 @@ module Scintilla
       @last_lparam = args[1]
     end
 
-    def send_message_get_text(wparam)
+    def send_message_get_text(message, wparam)
       @method_name = __method__
-      @last_message = 0
+      @last_message = message
       @last_wparam = wparam
       @last_lparam = nil
     end
@@ -169,11 +169,11 @@ assert('SCI_GETTEXT') do
   st = Scintilla::ScintillaTest.new
   st.sci_get_text(123)
   assert_equal :send_message_get_text, st.method_name
-  assert_equal 0, st.last_message
+  assert_equal Scintilla::SCI_GETTEXT, st.last_message
   assert_equal 123, st.last_wparam
   st.SCI_GETTEXT(5)
   assert_equal :send_message_get_text, st.method_name
-  assert_equal 0, st.last_message
+  assert_equal Scintilla::SCI_GETTEXT, st.last_message
   assert_equal 5, st.last_wparam
 end
 
