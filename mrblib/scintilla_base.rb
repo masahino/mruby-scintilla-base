@@ -57,7 +57,7 @@ module Scintilla
             send_message(message_id, *args)
           end
         else
-          raise "#{message_id} unknown"
+          raise "#{message_name} unknown"
         end
       else
         super
