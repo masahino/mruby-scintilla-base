@@ -78,7 +78,7 @@ assert('Scintilla::ScintillaBase#method_missing') do
   st.Sci_ClearAll
   assert_equal Scintilla::SCI_CLEARALL, st.last_message
   assert_raise(NoMethodError) { st.hogehoge }
-  assert_raise(RuntimeError) { st.sci_hogehoge }
+  assert_raise(NoMethodError) { st.sci_hogehoge }
   assert_raise(NoMethodError) { st.xxx_sci_hogehoge }
 end
 
@@ -284,4 +284,16 @@ end
 assert('create_lexer') do
   lexer = Scintilla.create_lexer('ruby')
   assert_not_nil lexer
+end
+
+assert('Scintilla::ScintillaBase dynamic method definition') do
+  st = Scintilla::ScintillaTest.new
+
+  assert_false st.class.instance_methods.include?(:sci_get_font_quality)
+
+  st.sci_get_font_quality
+  assert_true st.class.instance_methods.include?(:sci_get_font_quality)
+
+  assert_raise(NoMethodError) { st.sci_xxx_yyy }
+  assert_false st.class.instance_methods.include?(:sci_xxx_yyy)
 end
