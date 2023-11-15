@@ -61,4 +61,8 @@ MRuby::Gem::Specification.new('mruby-scintilla-base') do |spec|
     file "#{dir}/src/scintilla-base.c" => [:mruby_scintilla_base_compile_option, scintilla_h, lexilla_h, lexilla_a]
     file "#{dir}/src/sci_lexer.c" => [:mruby_scintilla_base_compile_option, lexilla_h]
   end
+
+  unless spec.build.cc.search_header_path('scintilla.h') || spec.build.cc.search_header_path('lexilla.h')
+    spec.download_scintilla
+  end
 end
