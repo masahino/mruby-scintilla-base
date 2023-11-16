@@ -107,7 +107,7 @@ module Scintilla
     # @param sym [Symbol] The method name to check.
     # @param include_private [Boolean] Whether to include private methods in the check.
     # @return [Boolean] True if the method is handled, false otherwise.]]]
-    def respond_to_missing?(sym, _include_private)
+    def respond_to_missing?(sym, _include_private = false)
       sym.to_s.upcase.start_with?('SCI_') || super
     end
   end
