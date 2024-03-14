@@ -1,7 +1,7 @@
 MRuby::Gem::Specification.new('mruby-scintilla-base') do |spec|
   spec.license = 'MIT'
   spec.authors = 'masahino'
-  spec.version = '5.4.2'
+  spec.version = '5.4.3'
   spec.add_dependency 'mruby-string-ext'
   spec.add_dependency 'mruby-metaprog'
   spec.add_test_dependency 'mruby-kernel-ext'
@@ -9,7 +9,7 @@ MRuby::Gem::Specification.new('mruby-scintilla-base') do |spec|
   def spec.download_scintilla
     require 'open-uri'
     require 'openssl'
-    scintilla_ver = '542'
+    scintilla_ver = '543'
     lexilla_ver = '531'
     scintilla_url = "https://scintilla.org/scintilla#{scintilla_ver}.tgz"
     lexilla_url = "https://scintilla.org/lexilla#{lexilla_ver}.tgz"
