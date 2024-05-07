@@ -287,6 +287,10 @@ mruby_scintilla_base_define_lexer_constants(mrb_state *mrb, struct RClass *sci) 
   mrb_define_const(mrb, sci, "SCE_RB_STDIN", mrb_fixnum_value(SCE_RB_STDIN));
   mrb_define_const(mrb, sci, "SCE_RB_STDOUT", mrb_fixnum_value(SCE_RB_STDOUT));
   mrb_define_const(mrb, sci, "SCE_RB_STDERR", mrb_fixnum_value(SCE_RB_STDERR));
+  mrb_define_const(mrb, sci, "SCE_RB_STRING_W", mrb_fixnum_value(SCE_RB_STRING_W));
+  mrb_define_const(mrb, sci, "SCE_RB_STRING_I", mrb_fixnum_value(SCE_RB_STRING_I));
+  mrb_define_const(mrb, sci, "SCE_RB_STRING_QI", mrb_fixnum_value(SCE_RB_STRING_QI));
+  mrb_define_const(mrb, sci, "SCE_RB_STRING_QS", mrb_fixnum_value(SCE_RB_STRING_QS));
   mrb_define_const(mrb, sci, "SCE_RB_UPPER_BOUND", mrb_fixnum_value(SCE_RB_UPPER_BOUND));
   mrb_define_const(mrb, sci, "SCE_B_DEFAULT", mrb_fixnum_value(SCE_B_DEFAULT));
   mrb_define_const(mrb, sci, "SCE_B_COMMENT", mrb_fixnum_value(SCE_B_COMMENT));
