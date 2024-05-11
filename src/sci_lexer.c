@@ -430,6 +430,10 @@ mruby_scintilla_base_define_lexer_constants(mrb_state *mrb, struct RClass *sci) 
   mrb_define_const(mrb, sci, "SCE_DIFF_DELETED", mrb_fixnum_value(SCE_DIFF_DELETED));
   mrb_define_const(mrb, sci, "SCE_DIFF_ADDED", mrb_fixnum_value(SCE_DIFF_ADDED));
   mrb_define_const(mrb, sci, "SCE_DIFF_CHANGED", mrb_fixnum_value(SCE_DIFF_CHANGED));
+  mrb_define_const(mrb, sci, "SCE_DIFF_PATCH_ADD", mrb_fixnum_value(SCE_DIFF_PATCH_ADD));
+  mrb_define_const(mrb, sci, "SCE_DIFF_PATCH_DELETE", mrb_fixnum_value(SCE_DIFF_PATCH_DELETE));
+  mrb_define_const(mrb, sci, "SCE_DIFF_REMOVED_PATCH_ADD", mrb_fixnum_value(SCE_DIFF_REMOVED_PATCH_ADD));
+  mrb_define_const(mrb, sci, "SCE_DIFF_REMOVED_PATCH_DELETE", mrb_fixnum_value(SCE_DIFF_REMOVED_PATCH_DELETE));
   mrb_define_const(mrb, sci, "SCE_CONF_DEFAULT", mrb_fixnum_value(SCE_CONF_DEFAULT));
   mrb_define_const(mrb, sci, "SCE_CONF_COMMENT", mrb_fixnum_value(SCE_CONF_COMMENT));
   mrb_define_const(mrb, sci, "SCE_CONF_NUMBER", mrb_fixnum_value(SCE_CONF_NUMBER));
