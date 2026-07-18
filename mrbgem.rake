@@ -49,14 +49,16 @@ MRuby::Gem::Specification.new('mruby-scintilla-base') do |spec|
     end
 
     task :mruby_scintilla_base_compile_option do
+    linker.flags_after_libraries << lexilla_a
+    linker.libraries << 'stdc++'
       [cc, cxx, objc, mruby.cc, mruby.cxx, mruby.objc].each do |cc|
         cc.include_paths << "#{scintilla_dir}/include"
         cc.include_paths << "#{lexilla_dir}/include"
       end
     end
 
-    linker.flags_after_libraries << lexilla_a
-    linker.libraries << 'stdc++'
+    # linker.flags_after_libraries << lexilla_a
+    # linker.libraries << 'stdc++'
 
     file "#{dir}/src/scintilla-base.c" => [:mruby_scintilla_base_compile_option, scintilla_h, lexilla_h, lexilla_a]
     file "#{dir}/src/sci_lexer.c" => [:mruby_scintilla_base_compile_option, lexilla_h]
