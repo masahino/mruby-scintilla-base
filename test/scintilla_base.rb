@@ -89,6 +89,20 @@ assert('Scintilla::ScintillaBase#respond_to') do
   assert_equal false, st.respond_to?(:hogehoge)
 end
 
+assert('Scintilla element colour API') do
+  st = Scintilla::ScintillaTest.new
+  st.sci_set_element_colour(
+    Scintilla::SC_ELEMENT_SELECTION_INACTIVE_BACK,
+    0xff123456
+  )
+
+  assert_equal Scintilla::SCI_SETELEMENTCOLOUR, st.last_message
+  assert_equal Scintilla::SC_ELEMENT_SELECTION_INACTIVE_BACK, st.last_wparam
+  assert_equal 0xff123456, st.last_lparam
+  assert_equal 0x10, Scintilla::SC_UPDATE_TEXT
+  assert_equal 0x20, Scintilla::SC_UPDATE_LINE_COUNT
+end
+
 assert('SCI_GETFOCUS') do
   st = Scintilla::ScintillaTest.new
   st.ret_val = 0
