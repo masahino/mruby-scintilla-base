@@ -300,6 +300,14 @@ assert('create_lexer') do
   assert_not_nil lexer
 end
 
+assert('sci_set_lexer_language') do
+  st = Scintilla::ScintillaTest.new
+  st.sci_set_lexer_language('ruby')
+  assert_equal :send_message_set_pointer, st.method_name
+  assert_equal Scintilla::SCI_SETILEXER, st.last_message
+  assert_not_nil st.last_wparam
+end
+
 assert('Scintilla::ScintillaBase dynamic method definition') do
   st = Scintilla::ScintillaTest.new
 

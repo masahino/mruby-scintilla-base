@@ -110,5 +110,9 @@ module Scintilla
     def respond_to_missing?(sym, _include_private = false)
       sym.to_s.upcase.start_with?('SCI_')
     end
+
+    def sci_set_lexer_language(language)
+      SCI_SETILEXER(Scintilla.create_lexer(language))
+    end
   end
 end
