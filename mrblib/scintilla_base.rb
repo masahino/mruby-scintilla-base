@@ -71,15 +71,9 @@ module Scintilla
     # @param message_name [String] The corresponding Scintilla message name.
     def define_dynamic_method(method_s, message_name)
       message_id = Scintilla.const_get(message_name)
-      handler = MESSAGE_HANDLERS[message_id]
-      if handler
-        self.class.define_method(method_s) do |*dyn_args|
-          send(handler, message_id, *dyn_args)
-        end
-      else
-        self.class.define_method(method_s) do |*dyn_args|
-          send_message(message_id, *dyn_args)
-        end
+      handler = MESSAGE_HANDLERS[message_id] || :send_message
+      self.class.define_method(method_s) do |*dyn_args|
+        send(handler, message_id, *dyn_args)
       end
     end
 
