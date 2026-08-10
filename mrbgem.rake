@@ -7,6 +7,9 @@ MRuby::Gem::Specification.new('mruby-scintilla-base') do |spec|
   spec.add_test_dependency 'mruby-kernel-ext'
 
   def spec.download_scintilla
+    return if @scintilla_download_configured
+
+    @scintilla_download_configured = true
     require 'open-uri'
     require 'openssl'
     scintilla_ver = '565'
@@ -48,20 +51,19 @@ MRuby::Gem::Specification.new('mruby-scintilla-base') do |spec|
       sh %{(cd #{lexilla_dir}/src && make CXX=#{build.cxx.command} AR=#{build.archiver.command} CXXFLAGS=#{cxxflags})}
     end
 
+    [cc, cxx, objc, mruby.cc, mruby.cxx, mruby.objc].each do |compiler|
+      compiler.include_paths << "#{scintilla_dir}/include"
+      compiler.include_paths << "#{lexilla_dir}/include"
+    end
+
     task :mruby_scintilla_base_compile_option do
       linker.flags_before_libraries << lexilla_a
       linker.libraries << 'stdc++'
-      [cc, cxx, objc, mruby.cc, mruby.cxx, mruby.objc].each do |cc|
-        cc.include_paths << "#{scintilla_dir}/include"
-        cc.include_paths << "#{lexilla_dir}/include"
-      end
     end
 
     file "#{dir}/src/scintilla-base.c" => [:mruby_scintilla_base_compile_option, scintilla_h, lexilla_h, lexilla_a]
     file "#{dir}/src/sci_lexer.c" => [:mruby_scintilla_base_compile_option, lexilla_h]
   end
 
-  unless spec.build.cc.search_header_path('scintilla.h') || spec.build.cc.search_header_path('lexilla.h')
-    spec.download_scintilla
-  end
+  spec.download_scintilla
 end
