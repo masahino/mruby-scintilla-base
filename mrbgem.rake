@@ -23,9 +23,6 @@ MRuby::Gem::Specification.new('mruby-scintilla-base') do |spec|
     lexilla_h = "#{lexilla_dir}/include/Lexilla.h"
     lexilla_a = "#{lexilla_dir}/bin/liblexilla.a"
 
-    export_include_paths << "#{scintilla_dir}/include"
-    export_include_paths << "#{lexilla_dir}/include"
-
     file scintilla_h do
       URI.open(scintilla_url, ssl_verify_mode: OpenSSL::SSL::VERIFY_NONE) do |http|
         scintilla_tar = http.read
