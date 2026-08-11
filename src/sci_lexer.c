@@ -25,6 +25,7 @@ mruby_scintilla_base_define_lexer_constants(mrb_state *mrb, struct RClass *sci) 
   mrb_define_const(mrb, sci, "SCE_P_FCHARACTER", mrb_fixnum_value(SCE_P_FCHARACTER));
   mrb_define_const(mrb, sci, "SCE_P_FTRIPLE", mrb_fixnum_value(SCE_P_FTRIPLE));
   mrb_define_const(mrb, sci, "SCE_P_FTRIPLEDOUBLE", mrb_fixnum_value(SCE_P_FTRIPLEDOUBLE));
+  mrb_define_const(mrb, sci, "SCE_P_ATTRIBUTE", mrb_fixnum_value(SCE_P_ATTRIBUTE));
   mrb_define_const(mrb, sci, "SCE_C_DEFAULT", mrb_fixnum_value(SCE_C_DEFAULT));
   mrb_define_const(mrb, sci, "SCE_C_COMMENT", mrb_fixnum_value(SCE_C_COMMENT));
   mrb_define_const(mrb, sci, "SCE_C_COMMENTLINE", mrb_fixnum_value(SCE_C_COMMENTLINE));
