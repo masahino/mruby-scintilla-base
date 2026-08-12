@@ -779,12 +779,12 @@ mrb_mruby_scintilla_base_gem_init(mrb_state* mrb)
   mrb_define_const(mrb, scim, "SC_AUTOMATICFOLD_CHANGE", mrb_fixnum_value(SC_AUTOMATICFOLD_CHANGE));
 
   mrb_define_const(mrb, scim, "SC_MARGIN_SYMBOL", mrb_fixnum_value(SC_MARGIN_SYMBOL));
-
   mrb_define_const(mrb, scim, "SC_MARGIN_NUMBER", mrb_fixnum_value(SC_MARGIN_NUMBER));
   mrb_define_const(mrb, scim, "SC_MARGIN_BACK", mrb_fixnum_value(SC_MARGIN_BACK));
   mrb_define_const(mrb, scim, "SC_MARGIN_FORE", mrb_fixnum_value(SC_MARGIN_FORE));
   mrb_define_const(mrb, scim, "SC_MARGIN_TEXT", mrb_fixnum_value(SC_MARGIN_TEXT));
   mrb_define_const(mrb, scim, "SC_MARGIN_RTEXT", mrb_fixnum_value(SC_MARGIN_RTEXT));
+  mrb_define_const(mrb, scim, "SC_MARGIN_COLOUR", mrb_fixnum_value(SC_MARGIN_COLOUR));
 
   mrb_define_const(mrb, scim, "SCN_STYLENEEDED", mrb_fixnum_value(SCN_STYLENEEDED));
   mrb_define_const(mrb, scim, "SCN_CHARADDED", mrb_fixnum_value(SCN_CHARADDED));
@@ -989,6 +989,8 @@ mrb_mruby_scintilla_base_gem_init(mrb_state* mrb)
   mrb_define_const(mrb, scim, "SCI_SETCHANGEHISTORY", mrb_fixnum_value(SCI_SETCHANGEHISTORY));
   mrb_define_const(mrb, scim, "SCI_GETCHANGEHISTORY", mrb_fixnum_value(SCI_GETCHANGEHISTORY));
   /* added ver 5.3.0 */
+  mrb_define_const(mrb, scim, "SCI_SETMARGINBACKN", mrb_fixnum_value(SCI_SETMARGINBACKN));
+  mrb_define_const(mrb, scim, "SCI_GETMARGINBACKN", mrb_fixnum_value(SCI_GETMARGINBACKN));
 
   mruby_scintilla_base_define_lexer_constants(mrb, scim);
 
