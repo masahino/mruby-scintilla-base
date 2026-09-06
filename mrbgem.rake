@@ -24,23 +24,27 @@ MRuby::Gem::Specification.new('mruby-scintilla-base') do |spec|
     lexilla_a = "#{lexilla_dir}/bin/liblexilla.a"
 
     file scintilla_h do
-      URI.open(scintilla_url, ssl_verify_mode: OpenSSL::SSL::VERIFY_NONE) do |http|
+      URI.open(scintilla_url, open_timeout: 10, read_timeout: 30) do |http|
         scintilla_tar = http.read
         FileUtils.mkdir_p scintilla_build_root
         IO.popen("tar xfz - -C #{filename scintilla_build_root}", 'wb') do |f|
           f.write scintilla_tar
         end
+        raise "tar failed: #{scintilla_url} (#{$?.exitstatus})" unless $?.success?
       end
+      raise "#{scintilla_h} not produced" unless File.exist?(scintilla_h)
     end
 
     file lexilla_h do
-      URI.open(lexilla_url, ssl_verify_mode: OpenSSL::SSL::VERIFY_NONE) do |http|
+      URI.open(lexilla_url, open_timeout: 10, read_timeout: 30) do |http|
         lexilla_tar = http.read
         FileUtils.mkdir_p scintilla_build_root
         IO.popen("tar xfz - -C #{filename scintilla_build_root}", 'wb') do |f|
           f.write lexilla_tar
         end
+        raise "tar failed: #{lexilla_url} (#{$?.exitstatus})" unless $?.success?
       end
+      raise "#{lexilla_h} not produced" unless File.exist?(lexilla_h)
     end
 
     file lexilla_a => lexilla_h do
@@ -63,6 +67,13 @@ MRuby::Gem::Specification.new('mruby-scintilla-base') do |spec|
 
     file "#{dir}/src/scintilla-base.c" => [:mruby_scintilla_base_compile_option, scintilla_h, lexilla_h, lexilla_a]
     file "#{dir}/src/sci_lexer.c" => [:mruby_scintilla_base_compile_option, lexilla_h]
+  end
+
+  # Path of the lexilla static archive produced by download_scintilla.
+  # Other scintilla-* gems that need to link lexilla should ask here rather
+  # than hard-coding this gem's build layout.
+  def spec.lexilla_archive
+    "#{build_dir}/scintilla/lexilla/bin/liblexilla.a"
   end
 
   spec.download_scintilla
