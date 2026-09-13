@@ -52,7 +52,7 @@ MRuby::Gem::Specification.new('mruby-scintilla-base') do |spec|
       if RUBY_PLATFORM.downcase.include?('cygwin')
         cxxflags = '--std=gnu++17'
       end
-      sh %{(cd #{lexilla_dir}/src && make CXX=#{build.cxx.command} AR=#{build.archiver.command} CXXFLAGS=#{cxxflags})}
+      sh %{(cd #{lexilla_dir}/src && make -j4 CXX=#{build.cxx.command} AR=#{build.archiver.command} CXXFLAGS=#{cxxflags})}
     end
 
     [cc, cxx, objc, mruby.cc, mruby.cxx, mruby.objc].each do |compiler|
